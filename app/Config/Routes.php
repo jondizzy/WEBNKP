@@ -7,3 +7,5 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 $routes->get('/about', 'Home::about');
+$routes->get('/client', 'Home::client');
+$routes->get('/client/detail/(:segment)', 'Home::clientDetail/$1');
