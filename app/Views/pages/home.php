@@ -1,13 +1,70 @@
 <?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
+<style>
+    .video-hero {
+        position: relative;
+        height: 100vh;
+        overflow: hidden;
+    }
+
+    .background-video {
+        position: absolute;
+        top: 0;
+        left: 0;
+        min-width: 100%;
+        min-height: 100%;
+        object-fit: cover;
+        z-index: 1;
+    }
+
+    .video-overlay {
+        position: relative;
+        z-index: 2;
+        width: 100%;
+        height: 100%;
+        background: rgba(0, 0, 0, 0.4);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        text-align: center;
+        color: white;
+    }
+
+    .video-text h1 {
+        font-size: 3em;
+        margin-bottom: 0.5em;
+    }
+
+    .video-text p {
+        font-size: 1.5em;
+    }
+</style>
+
+
+
+<!-- VIDEO SECTION -->
+<section class="video-hero">
+    <video autoplay muted loop playsinline class="background-video">
+        <source src="<?= base_url('videos/company-profile.mp4') ?>" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    <div class="video-overlay">
+        <div class="video-text">
+            <h1>Selamat Datang di PT Nusamas Kimia Persada</h1>
+            <p>Solusi kimia terpercaya untuk kebutuhan industri Anda.</p>
+        </div>
+    </div>
+</section>
+
+
+
 <!-- Bagian Produk -->
 <section class="product-slider-section">
     <h2>Produk Kami</h2>
     <div class="swiper mySwiper">
         <div class="swiper-wrapper">
 
-            <!-- Item Produk 1 -->
             <div class="swiper-slide">
                 <div class="product-card">
                     <a href="<?= base_url('/product/detail/1') ?>">
@@ -19,7 +76,6 @@
                 </div>
             </div>
 
-            <!-- Item Produk 2 -->
             <div class="swiper-slide">
                 <div class="product-card">
                     <a href="<?= base_url('/product/detail/2') ?>">
@@ -31,7 +87,6 @@
                 </div>
             </div>
 
-            <!-- Item Produk 3 -->
             <div class="swiper-slide">
                 <div class="product-card">
                     <a href="<?= base_url('/product/detail/3') ?>">
