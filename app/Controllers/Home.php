@@ -13,4 +13,8 @@ class Home extends BaseController
     {
         return view('pages/about', ['title' => 'Tentang Kami']);
     }
+    public function ProductCategory()
+    {
+        return view('pages/ProductCategory', ['title' => 'Product Category']);
+    }
 }
