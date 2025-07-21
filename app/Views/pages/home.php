@@ -38,90 +38,139 @@
         <div class="swiper-button-prev"></div>
     </div>
 </section>
-<section> <!--mengapa memilih kami?-->
 
+<section class="mengapa-memilih-kami"> <!--mengapa memilih kami?-->
 
 <style>
-.leftcolumn {
-  background-color: blue;
-  flex: 50%; 
-}
-.rightcolumn {
-    background-color: red;
-    flex:50%;
-}
-.row {
-  content: "";
-  display: flex;
-}
-.square {
-  height: 150px;
-  width: 150px;
-  background-color: green;
-  border-radius: 30px;
+
+.mengapa-memilih-kami {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 40px;
+    justify-content: space-between;
+    align-items: flex-start;;
 }
 
-.firstsquarecolumn {
-    flex: 16%;
-    padding: 10px;
+.left-column {
+    flex: 1;
+    min-width: 300px;
+    max-width: 500px;
 }
-.secondsquarecolumn {
-    flex: 16%;
-    padding: 10px;
+
+.left-column h2 {
+    font-size: 28px;
+    margin-bottom: 16px;
 }
-.thirdsquarecolumn {
-    flex: 16%;
-    padding: 10px;
+
+.left-column .highlight {
+    color: blue;
 }
-.fourthsquarecolumn {
-    flex: 50%;
-    padding: 10px;
-    width: 100%;
-    margin: auto;  
+
+.left-column p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-botton: 20px;
 }
-.fifthsquarecolumn {
-    flex: 50%;
-    padding: 10px;
-    width: 100%;
-    margin: auto;
+
+.right-column {
+    min-width: 300px;
+    max-width: 600px;
 }
-.squarerow {
-    content: "";
+
+.features {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    justify-items: center;
+    gap: 20px;
+}
+
+.feature-blocks {
+    width: 160px;
+    text-align: center;
+}
+
+.icon-img {
+    width: 80px;
+    height: 80px;
+    border-radius: 16px;
+    margin: 0 auto 10px;
     display: flex;
-    align: center;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+}
+
+.blockcolor-purple {
+    background-color: #eae6fc;
+}
+
+.blockcolor-pink {
+    background-color: #fdecee;
+}
+
+.blockcolor-green {
+    background-color: #e6f6f1;
+}
+
+.blockcolor-blue {
+    background-color: #e6f0fc;
+}
+
+.blockcolor-yellow {
+    background-color: #fff4e5;
 }
 </style>
 
+    <div class="left-column">
+        <h2><span class="highlight">Mengapa Memilih Kami?</span></h2>
+        <p>
+            PT Nusamas Kimia Persada berkomitmen penuh untuk memenuhi setiap kebutuhan Anda dalam produk bahan kimia mulai dari pencampuran, pengemasan  hingga pengiriman
+        </p>
+        <p>
+            Keunggulan kami meliputi:
+        </p>
+        <a href="<?= base_url('/about') ?>" class="btn">About Us</a>
+    </div> 
 
-    <div class="row">
-        <div class="leftcolumn"> 
-            <h2>Mengapa Memilih Kami?</h2>
-            <p>PT Nusamas Kimia Persada berkomitmen penuh untuk memenuhi setiap kebutuhan Anda dalam produk bahan kimia mulai dari pencampuran, pengemasan  hingga pengiriman</p>
-            <p>Keunggulan kami meliputi:</p>
-            <a href="<?= base_url('/about') ?>" class="btn">About Us</a>
-        </div>
-            <div class="rightcolumn">
-                <div class="squarerow">
-                    <div class="firstsquarecolumn">
-                        <div class="square"></div>
+        <div class="right-column">
+            <div class="features">
+                <div class="feature-blocks">
+                    <div class="icon-img blockcolor-purple">
+                        <!-- icon purple -->
                     </div>
-                        <div class="secondsquarecolumn">
-                            <div class="square"></div>
-                        </div>
-                            <div class="thirdsquarecolumn">
-                                <div class="square"></div>
-                            </div>
+                    <p><strong>Jaringan Distribusi Andal</strong></p>
                 </div>
-                <div class="squarerow">
-                    <div class="fourthsquarecolumn">
-                        <div class="square"></div>
+
+            <div class="feature-blocks">
+                    <div class="icon-img blockcolor-pink">
+                        <!-- icon pink -->
                     </div>
-                        <div class="fifthsquarecolumn">
-                            <div class="square"></div>
-                        </div>
+                    <p><strong>Kemitraan Global</strong></p>
                 </div>
-            </div>     
-    </div>
+
+            <div class="feature-blocks">
+                    <div class="icon-img blockcolor-green">
+                        <!-- icon green -->
+                    </div>
+                    <p><strong>Keahlian Industri</strong></p>
+                </div>
+
+            <div class="feature-blocks">
+                    <div class="icon-img blockcolor-blue">
+                        <!-- icon blue -->
+                    </div>
+                    <p><strong>Jaminan Kualitas</strong></p>
+                </div>
+
+            <div class="feature-blocks">
+                    <div class="icon-img blockcolor-yellow">
+                        <!-- icon yellow -->
+                    </div>
+                    <p><strong>Komitmen Keberlanjutan</strong></p>
+                </div>
+            </div> <!-- features -->
+        </div> <!-- right column -->
+
 </section>
 
 
