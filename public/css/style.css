@@ -5,6 +5,7 @@ body, html {
     font-family: 'Segoe UI', sans-serif;
     color: #333;
     background-color: #fff;
+    
 }
 
 a {
@@ -196,6 +197,26 @@ a {
     transition: transform 0.3s;
 }
 
+
+.swiper-slide p {
+    margin-top: 10px;
+    font-weight: bold;
+}   
+.flex-container {
+    background-color: lightgrey;
+    display: flex;
+}   
+.columntext {
+    flex: 50%;
+    padding: 20px;
+    
+}
+.center {
+  display: block;
+  margin-left: auto;
+  margin-right: auto;
+
+=======
 .product-info {
     padding: 15px;
 }

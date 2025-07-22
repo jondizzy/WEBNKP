@@ -22,7 +22,7 @@
             <nav class="main-nav">
                 <a href="<?= base_url('/') ?>">Home</a>
                 <a href="<?= base_url('/about') ?>">About</a>
-                <a href="<?= base_url('/product') ?>">Product</a>
+                <a href="<?= base_url('/ProductCategory') ?>">Product</a>
                 <a href="<?= base_url('/client') ?>">Client</a>
                 <a href="<?= base_url('/contact') ?>">Contact</a>
                 <a href="<?= base_url('/news') ?>">News</a>
