@@ -51,18 +51,26 @@
         document.addEventListener('DOMContentLoaded', function() {
             new Swiper('.mySwiper', {
                 slidesPerView: 3,
-                spaceBetween: 30,
+                spaceBetween: 20,
                 loop: true,
+                centeredSlides: true,
+                autoplay: {
+                    delay: 3000, // geser otomatis setiap 3 detik
+                    disableOnInteraction: false, // tetap autoplay meski user klik
+                },
                 navigation: {
                     nextEl: '.swiper-button-next',
                     prevEl: '.swiper-button-prev',
                 },
                 breakpoints: {
+                    1024: {
+                        slidesPerView: 3,
+                    },
                     768: {
-                        slidesPerView: 2
+                        slidesPerView: 2,
                     },
                     480: {
-                        slidesPerView: 1
+                        slidesPerView: 1,
                     }
                 }
             });
