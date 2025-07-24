@@ -30,7 +30,6 @@
         padding: 0 20px;
     }
 
-
     /* Hapus padding dari elemen parent */
     .video-hero,
     .video-hero * {
@@ -38,10 +37,10 @@
     }
 
     /* Tambahan umum */
-    body,
-    html {
-        padding: 0;
+    html,
+    body {
         margin: 0;
+        padding: 0;
         overflow-x: hidden;
     }
 </style>
@@ -49,12 +48,11 @@
 <!-- VIDEO SECTION -->
 <?= $this->section('hero') ?>
 <section class="video-hero">
-    <video class="background-video" autoplay muted loop>
-        <source src="videos/company-profile.mp4" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="video-overlay">
-        <div class="video-text">
+    <div class="hero-section">
+        <video class="background-video" autoplay muted loop playsinline preload="auto">
+            <source src="<?= base_url('videos/company-profile.mp4') ?>" type="video/mp4">
+        </video>
+        <div class="hero-content">
             <h1>Selamat Datang di PT Nusamas Kimia Persada</h1>
             <p>Solusi kimia terpercaya untuk kebutuhan industri Anda.</p>
         </div>
