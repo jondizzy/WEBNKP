@@ -17,6 +17,7 @@ class Home extends BaseController
     public function ProductCategory()
     {
         return view('pages/ProductCategory', ['title' => 'Product Category']);
+    }
 
     public function client()
     {
