@@ -91,6 +91,26 @@
       font-weight: bold;
     }
 
+    /* Header */
+    .site-header {
+        background-color: white;
+        box-shadow: 0 1px 5px rgba(0,0,0,0.05);
+        padding: 15px 0;
+        position: sticky;
+        top: 0;
+        z-index: 10;
+        padding: 15px;
+    }
+
+    .header-container {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 9.5%;
+        padding-right: 10.5%;
+    }
+
+
     .logo-wrapper {
       display: flex;
       align-items: center;
