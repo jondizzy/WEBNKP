@@ -79,14 +79,15 @@
         position: sticky;
         top: 0;
         z-index: 10;
-
-        padding: 10px;
+        padding: 15px;
     }
 
     .header-container {
         display: flex;
         justify-content: space-between;
         align-items: center;
+        padding-left: 9.5%;
+        padding-right: 10.5%;
     }
 
     .logo-wrapper {
