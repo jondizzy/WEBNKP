@@ -2,57 +2,65 @@
 
 <?= $this->section('content') ?>
 <style>
+    /* Hindari container utama mempengaruhi video section */
     .video-hero {
         position: relative;
+        width: 100vw !important;
         height: 100vh;
+        margin: 0;
+        padding: 0;
         overflow: hidden;
+        max-width: 100vw !important;
     }
-    .background-video {
+
+
+    .video-overlay {
         position: absolute;
         top: 0;
         left: 0;
-        min-width: 100%;
-        min-height: 100%;
-        object-fit: cover;
-        z-index: 1;
-    }
-
-    .video-overlay {
-        position: relative;
-        z-index: 2;
-        width: 100%;
-        height: 100%;
+        width: 100vw;
+        height: 100vh;
         background: rgba(0, 0, 0, 0.4);
+        /* Efek gelap */
         display: flex;
         justify-content: center;
         align-items: center;
         text-align: center;
         color: white;
+        padding: 0 20px;
     }
 
-    .video-text h1 {
-        font-size: 3em;
-        margin-bottom: 0.5em;
+    /* Hapus padding dari elemen parent */
+    .video-hero,
+    .video-hero * {
+        box-sizing: border-box;
     }
 
-    .video-text p {
-        font-size: 1.5em;
+    /* Tambahan umum */
+    html,
+    body {
+        margin: 0;
+        padding: 0;
+        overflow-x: hidden;
     }
 </style>
 
 <!-- VIDEO SECTION -->
+<?= $this->section('hero') ?>
 <section class="video-hero">
-    <video autoplay muted loop playsinline class="background-video">
-        <source src="<?= base_url('videos/company-profile.mp4') ?>" type="video/mp4">
-        Your browser does not support the video tag.
-    </video>
-    <div class="video-overlay">
-        <div class="video-text">
+    <div class="hero-section">
+        <video class="background-video" autoplay muted loop playsinline preload="auto">
+            <source src="<?= base_url('videos/company-profile.mp4') ?>" type="video/mp4">
+        </video>
+        <div class="hero-content">
             <h1>Selamat Datang di PT Nusamas Kimia Persada</h1>
             <p>Solusi kimia terpercaya untuk kebutuhan industri Anda.</p>
         </div>
     </div>
 </section>
+<?= $this->endSection() ?>
+
+
 
 <!-- Bagian Produk -->
 <section class="product-slider-section">
@@ -134,86 +142,126 @@
     </div>
 </section>
 
+<section class="achievement">
+    <div class="flex-container">
+        <div class="columntext">
+            <h1 style="color:blue; font-size: 40px;"> Achievement </h1>
+            <p style="font-size: 25px">Pencapaian PT Nusamas Kimia Persada</p>
+            <p>Sebagai Supplier, Importir, Distributor Bahan Kimia terkemuka di Indonesia, kami sudah mendapat banyak pencapaian selama ini!</p>
+        </div>
+        <div class="columntext">
+            <div class="columntext">
+                <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="400" height="350" class="center">
+            </div>
+            <!-- <div class="flex-container">
+            <div class="columntext">
+                <a href="<?= base_url('/product/detail/1') ?>">
+                    <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="200" height="150">
+                </a>
+            </div> 
+            <div class="columntext">
+                <a href="<?= base_url('/product/detail/1') ?>">
+                    <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="200" height="150">
+                </a>
+            </div> 
+        </div>
+        <div class="flex-container">
+            <div class="columntext">
+                <a href="<?= base_url('/product/detail/1') ?>">
+                    <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="200" height="150">
+                </a>
+            </div> 
+            <div class="columntext">
+                <a href="<?= base_url('/product/detail/1') ?>">
+                    <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="200" height="150">
+                </a>
+            </div> 
+        </div> -->
+        </div>
+    </div>
+</section>
+
+
 <section class="mengapa-memilih-kami"> <!--mengapa memilih kami?-->
-<style>
+    <style>
+        .mengapa-memilih-kami {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 40px;
+            justify-content: space-between;
+            align-items: flex-start;
+            ;
+        }
 
-.mengapa-memilih-kami {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 40px;
-    justify-content: space-between;
-    align-items: flex-start;;
-}
+        .left-column {
+            flex: 1;
+            min-width: 300px;
+            max-width: 500px;
+        }
 
-.left-column {
-    flex: 1;
-    min-width: 300px;
-    max-width: 500px;
-}
+        .left-column h2 {
+            font-size: 28px;
+            margin-bottom: 16px;
+        }
 
-.left-column h2 {
-    font-size: 28px;
-    margin-bottom: 16px;
-}
+        .left-column .highlight {
+            color: blue;
+        }
 
-.left-column .highlight {
-    color: blue;
-}
+        .left-column p {
+            font-size: 16px;
+            line-height: 1.6;
+            margin-botton: 20px;
+        }
 
-.left-column p {
-    font-size: 16px;
-    line-height: 1.6;
-    margin-botton: 20px;
-}
+        .right-column {
+            min-width: 300px;
+            max-width: 600px;
+        }
 
-.right-column {
-    min-width: 300px;
-    max-width: 600px;
-}
+        .features {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            justify-items: center;
+            gap: 20px;
+        }
 
-.features {
-    display: grid;
-    grid-template-columns: repeat(3, 1fr);
-    justify-items: center;
-    gap: 20px;
-}
+        .feature-blocks {
+            width: 160px;
+            text-align: center;
+        }
 
-.feature-blocks {
-    width: 160px;
-    text-align: center;
-}
+        .icon-img {
+            width: 80px;
+            height: 80px;
+            border-radius: 16px;
+            margin: 0 auto 10px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 28px;
+        }
 
-.icon-img {
-    width: 80px;
-    height: 80px;
-    border-radius: 16px;
-    margin: 0 auto 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-size: 28px;
-}
+        .blockcolor-purple {
+            background-color: #eae6fc;
+        }
 
-.blockcolor-purple {
-    background-color: #eae6fc;
-}
+        .blockcolor-pink {
+            background-color: #fdecee;
+        }
 
-.blockcolor-pink {
-    background-color: #fdecee;
-}
+        .blockcolor-green {
+            background-color: #e6f6f1;
+        }
 
-.blockcolor-green {
-    background-color: #e6f6f1;
-}
+        .blockcolor-blue {
+            background-color: #e6f0fc;
+        }
 
-.blockcolor-blue {
-    background-color: #e6f0fc;
-}
-
-.blockcolor-yellow {
-    background-color: #fff4e5;
-}
-</style>
+        .blockcolor-yellow {
+            background-color: #fff4e5;
+        }
+    </style>
 
     <div class="left-column">
         <h2><span class="highlight">Mengapa Memilih Kami?</span></h2>
@@ -224,46 +272,46 @@
             Keunggulan kami meliputi:
         </p>
         <a href="<?= base_url('/about') ?>" class="btn">About Us</a>
-    </div> 
+    </div>
 
-        <div class="right-column">
-            <div class="features">
-                <div class="feature-blocks">
-                    <div class="icon-img blockcolor-purple">
-                        <!-- icon purple -->
-                    </div>
-                    <p><strong>Jaringan Distribusi Andal</strong></p>
+    <div class="right-column">
+        <div class="features">
+            <div class="feature-blocks">
+                <div class="icon-img blockcolor-purple">
+                    <!-- icon purple -->
                 </div>
+                <p><strong>Jaringan Distribusi Andal</strong></p>
+            </div>
 
             <div class="feature-blocks">
-                    <div class="icon-img blockcolor-pink">
-                        <!-- icon pink -->
-                    </div>
-                    <p><strong>Kemitraan Global</strong></p>
+                <div class="icon-img blockcolor-pink">
+                    <!-- icon pink -->
                 </div>
+                <p><strong>Kemitraan Global</strong></p>
+            </div>
 
             <div class="feature-blocks">
-                    <div class="icon-img blockcolor-green">
-                        <!-- icon green -->
-                    </div>
-                    <p><strong>Keahlian Industri</strong></p>
+                <div class="icon-img blockcolor-green">
+                    <!-- icon green -->
                 </div>
+                <p><strong>Keahlian Industri</strong></p>
+            </div>
 
             <div class="feature-blocks">
-                    <div class="icon-img blockcolor-blue">
-                        <!-- icon blue -->
-                    </div>
-                    <p><strong>Jaminan Kualitas</strong></p>
+                <div class="icon-img blockcolor-blue">
+                    <!-- icon blue -->
                 </div>
+                <p><strong>Jaminan Kualitas</strong></p>
+            </div>
 
             <div class="feature-blocks">
-                    <div class="icon-img blockcolor-yellow">
-                        <!-- icon yellow -->
-                    </div>
-                    <p><strong>Komitmen Keberlanjutan</strong></p>
+                <div class="icon-img blockcolor-yellow">
+                    <!-- icon yellow -->
                 </div>
-            </div> <!-- features -->
-        </div> <!-- right column -->
+                <p><strong>Komitmen Keberlanjutan</strong></p>
+            </div>
+        </div> <!-- features -->
+    </div> <!-- right column -->
 
 </section>
 
