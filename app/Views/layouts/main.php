@@ -35,7 +35,7 @@
 
     <!-- MAIN CONTENT -->
     <?= $this->renderSection('hero') ?> <!-- khusus video -->
-    <main class="main-content container">
+    <main class="main-content container-fluid p-0 m-0">
         <?= $this->renderSection('content') ?>
     </main>
 
