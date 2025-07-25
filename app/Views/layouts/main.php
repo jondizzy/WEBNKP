@@ -34,6 +34,7 @@
     </header>
 
     <!-- MAIN CONTENT -->
+    <?= $this->renderSection('hero') ?> <!-- khusus video -->
     <main class="main-content container">
         <?= $this->renderSection('content') ?>
     </main>
