@@ -175,7 +175,8 @@
         <tr>
           <th>
             <img src="<?= base_url('images/Product1.jpg') ?>" alt="Produk 1" width="300" height="250">
-            <div class="caption">Food 1</div>
+            <div class="caption"><a href="<?= base_url('/productdetail') ?>">food 1</a></div>
+            
           </th>
           <th>
             <img src="<?= base_url('images/Product2.jpg') ?>" alt="Produk 1" width="300" height="250">
