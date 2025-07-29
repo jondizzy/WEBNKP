@@ -17,7 +17,7 @@
     <header class="site-header">
         <div class="container header-container">
             <div class="logo-wrapper">
-                <img src="<?= base_url('images/logo.jpg') ?>" alt="Logo" class="logo-img">
+                <img src="<?= base_url('images/logo.jpg') ?>" alt="Logo" class="logo-img" style="height: 100px;">
             </div>
             <nav class="main-nav">
                 <a href="<?= base_url('/') ?>">Home</a>
