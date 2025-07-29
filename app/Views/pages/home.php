@@ -463,6 +463,276 @@
 </style>
 
 
+<section id="news" class="news-section">
+    <div class="container">
+        <div class="news-header">
+            <h2>Latest News</h2>
+            <a href="<?= base_url('/news') ?>" class="see-all">See All →</a>
+        </div>
+
+        <?php
+        $news = [
+            [
+                'title' => 'Pabrik Baru Dibuka di Karawang',
+                'summary' => 'Kami resmi membuka fasilitas baru di Karawang untuk memperluas distribusi nasional.',
+                'image' => '/images/news/news 1.webp',
+                'slug' => 'pabrik-baru-karawang',
+                'category' => 'Press Release',
+                'published_at' => '2025-07-26',
+            ],
+            [
+                'title' => 'Kemitraan Strategis Baru',
+                'summary' => 'Kami menjalin kemitraan dengan perusahaan internasional untuk memperkuat rantai pasokan.',
+                'image' => '/images/news/news 2.jpg',
+                'slug' => 'kemitraan-strategis',
+                'category' => 'Blog',
+                'published_at' => '2025-07-25',
+            ],
+            [
+                'title' => 'Sertifikasi ISO 9001:2024',
+                'summary' => 'Perusahaan kami meraih sertifikasi ISO terbaru sebagai bukti kualitas dan standar tinggi.',
+                'image' => '/images/news/news 3.jpg',
+                'slug' => 'sertifikasi-iso-9001',
+                'category' => 'Blog',
+                'published_at' => '2025-07-24',
+            ],
+            [
+                'title' => 'Pelatihan Karyawan Nasional',
+                'summary' => 'Kami mengadakan pelatihan karyawan secara nasional untuk meningkatkan kompetensi tim.',
+                'image' => '/images/news/news 4.jpg',
+                'slug' => 'pelatihan-karyawan-nasional',
+                'category' => 'Training',
+                'published_at' => '2025-07-23',
+            ],
+            [
+                'title' => 'Produk Baru untuk Industri Makanan',
+                'summary' => 'Kami meluncurkan produk kimia baru yang aman dan efisien untuk industri makanan dan minuman.',
+                'image' => '/images/news/news 5.jpg',
+                'slug' => 'produk-baru-industri-makanan',
+                'category' => 'Product Launch',
+                'published_at' => '2025-07-22',
+            ],
+            [
+                'title' => 'Ekspansi ke Pasar Asia Tenggara',
+                'summary' => 'Kami memperluas distribusi kami ke beberapa negara Asia Tenggara untuk memperluas pasar ekspor.',
+                'image' => '/images/news/news 6.jpeg',
+                'slug' => 'ekspansi-asia-tenggara',
+                'category' => 'Business',
+                'published_at' => '2025-07-21',
+            ],
+        ];
+        ?>
+
+        <div class="news-wrapper">
+            <!-- Left Big News -->
+            <?php $main = $news[0]; ?>
+            <div class="news-main">
+                <a href="<?= base_url('news/' . $main['slug']) ?>" class="news-link">
+                    <img src="<?= base_url($main['image']) ?>" alt="<?= esc($main['title']) ?>" class="news-main-img">
+                    <div class="news-main-content">
+                        <p class="news-category"><?= esc($main['category']) ?></p>
+                        <h3 class="news-title"><?= esc($main['title']) ?></h3>
+                        <p class="news-summary"><?= esc($main['summary']) ?></p>
+                        <p class="news-date"><?= date('d M Y', strtotime($main['published_at'])) ?></p>
+                    </div>
+                </a>
+            </div>
+
+            <!-- Right List News -->
+            <div class="news-list">
+                <?php foreach (array_slice($news, 1) as $item): ?>
+                    <a href="<?= base_url('news/' . $item['slug']) ?>" class="news-item-link">
+                        <div class="news-item">
+                            <img src="<?= base_url($item['image']) ?>" alt="<?= esc($item['title']) ?>" class="news-thumb">
+                            <div class="news-item-body">
+                                <p class="news-category"><?= esc($item['category']) ?></p>
+                                <h4 class="news-title"><?= esc($item['title']) ?></h4>
+                                <p class="news-summary"><?= esc($item['summary']) ?></p>
+                                <p class="news-date"><?= date('d M Y', strtotime($item['published_at'])) ?></p>
+                            </div>
+                        </div>
+                    </a>
+                <?php endforeach; ?>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+<style>
+    .news-section {
+        padding: 60px 20px;
+        background: #fafafa;
+    }
+
+    .news-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 30px;
+    }
+
+    .news-header h2 {
+        font-size: 2rem;
+        font-weight: bold;
+        color: #111;
+    }
+
+    .see-all {
+        color: #d60000;
+        font-weight: 500;
+        text-decoration: none;
+    }
+
+    .see-all:hover {
+        text-decoration: underline;
+    }
+
+    .news-wrapper {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 24px;
+    }
+
+    .news-main {
+        flex: 1 1 60%;
+        min-width: 300px;
+    }
+
+    .news-main-img {
+        width: 100%;
+        height: 340px;
+        object-fit: cover;
+        border-radius: 12px;
+    }
+
+    .news-main-content {
+        margin-top: 16px;
+    }
+
+    .news-main-content .news-category {
+        color: #d60000;
+        font-size: 0.9rem;
+        margin-bottom: 6px;
+    }
+
+    .news-main-content .news-title {
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 10px;
+    }
+
+    .news-main-content .news-summary {
+        font-size: 1rem;
+        color: #444;
+        margin-bottom: 8px;
+    }
+
+    .news-main-content .news-date {
+        font-size: 0.85rem;
+        color: #777;
+    }
+
+    .news-list {
+        flex: 1 1 35%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+    }
+
+    .news-item {
+        display: flex;
+        gap: 12px;
+        background: #fff;
+        border-radius: 10px;
+        overflow: hidden;
+        box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+        transition: box-shadow 0.2s ease;
+    }
+
+    .news-item:hover {
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+    }
+
+    .news-thumb {
+        width: 100px;
+        height: 100px;
+        object-fit: cover;
+        flex-shrink: 0;
+    }
+
+    .news-item-body {
+        padding: 10px;
+        flex: 1;
+    }
+
+    .news-item-body .news-category {
+        font-size: 0.8rem;
+        color: #d60000;
+        margin-bottom: 4px;
+    }
+
+    .news-item-body .news-title {
+        font-size: 1rem;
+        font-weight: 600;
+        margin-bottom: 6px;
+    }
+
+    .news-item-body .news-summary {
+        font-size: 0.9rem;
+        color: #444;
+        margin-bottom: 4px;
+    }
+
+    .news-item-body .news-date {
+        font-size: 0.75rem;
+        color: #888;
+    }
+
+    .news-link,
+    .news-item-link {
+        text-decoration: none;
+        color: inherit;
+        display: block;
+    }
+
+    @media (max-width: 768px) {
+        .news-wrapper {
+            flex-direction: column;
+        }
+
+        .news-main-img {
+            height: 250px;
+        }
+    }
+
+    .news-list {
+        flex: 1 1 35%;
+        display: flex;
+        flex-direction: column;
+        gap: 16px;
+        max-height: 360px;
+        overflow-y: auto;
+        padding-right: 6px;
+    }
+
+    /* Scrollbar Styling (opsional, agar cantik) */
+    .news-list::-webkit-scrollbar {
+        width: 6px;
+    }
+
+    .news-list::-webkit-scrollbar-thumb {
+        background-color: #ccc;
+        border-radius: 4px;
+    }
+
+    .news-list::-webkit-scrollbar-thumb:hover {
+        background-color: #aaa;
+    }
+</style>
+
+
+
 
 <script>
     document.addEventListener('DOMContentLoaded', function() {
