@@ -41,9 +41,28 @@
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2025 PT. Nusamas Kimia Persada<br>
-                Hak cipta dilindungi undang-undang.</p>
+        <div class="site-footer-container">
+            <!--Address section-->
+            <div class="footer-address">
+                <h3>Nusamas Kimia Persada</h3>
+                <p>
+                    BSD Junction, Jl. Pahlawan Seribu No.48A Blok A, BSD City,<br>
+                    Kec. Serpong, Kota Tangerang Selatan, Jawa Barat 15322
+                </p>
+            </div>
+
+            <!--Explore section-->
+            <div class="footer-explore">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="<?= base_url('/') ?>">Home</a></li>
+                    <li><a href="<?= base_url('/aboutUs') ?>">About</a></li>
+                    <li><a href="<?= base_url('/ProductCategory') ?>">Product</a></li>
+                    <li><a href="<?= base_url('/client') ?>">Client</a></li>
+                    <li><a href="<?= base_url('/contact') ?>">Contact</a></li>
+                    <li><a href="<?= base_url('/news') ?>">News</a></li>
+                    </ul>
+            </div>
         </div>
     </footer>
 

@@ -63,6 +63,7 @@
 
         h2, h3, h4 {
             margin: 0 0 10px;
+            font-size: 24px;
         }
 
         section {
