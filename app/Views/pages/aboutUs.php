@@ -1,17 +1,56 @@
-<!DOCTYPE html>
+<?= $this->extend('layouts/main') ?>
+<?= $this->section('content') ?>
 <html lang="en">
-    <head>
-        <body>
             <!-- Header Section -->
              <section class="header-section">
+                <h2><span class="highlight-blue">20 tahun</span> berdiri sebagai pemasok bahan kimia terpercaya</h2>
+                <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx. sejarah awal berdiri</p>
                 
              </section>
+            <!-- Visi Misi Mutu Section -->
+            <section class="vmm-section">
+                <div class="vmm-container">
+                    <div class="vmm-box-icon">Visi</div>
+                    <div class="vmm-box-icon">Misi</div>
+                    <div class="vmm-box-icon">Mutu</div>
+                </div>
+                <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx. nilai nilai perusahaan</p>
+            
+            </section>
 
-        </body>
+            <!--Kepuasan Section-->
+            <section class="kepuasan-section">
+                <h3><span>Kepuasan </span>pelanggan merupakan prioritas utama</h3>
+                <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx. layanan after sales dan staff yang siap support</p>
 
-    </head>
+            </section>
 
-    <!-- CSS styles -->
+            <!--Sertifikat Section-->
+            <section class="sertifikat-section">
+                <h3>Sertifikat yang diakui</h3>
+                <div class="sertifikat">
+                    <img src="https://via.placeholder.com/200x120?text=Sertifikat+A" alt="Sertifikat A">
+                    <div>
+                        <h4>Sertifikat A</h4>
+                        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx tentang sertifikat A</p>
+                    </div>
+                </div> <!-- sertifikat A-->
+                <div class="sertifikat">
+                    <img src="https://via.placeholder.com/200x120?text=Sertifikat+B" alt="Sertifikat B">
+                    <div>
+                        <h4>Sertifikat B</h4>
+                        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx tentang sertifikat B</p>
+                    </div>
+                </div> <!-- sertifikat B-->
+                <div class="sertifikat">
+                    <img src="https://via.placeholder.com/200x120?text=Sertifikat+C" alt="Sertifikat C">
+                    <div>
+                        <h4>Sertifikat C</h4>
+                        <p>xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx tentang sertifikat C</p>
+                    </div>
+                </div> <!-- sertifikat C-->
+            </section>
+     <!-- CSS styles -->
     <style>
         body {
             margin: 0;
@@ -35,16 +74,16 @@
             background-color: #d9d9d9;
             text-align: center;
             padding: 30px 20px;
+            padding-top: 10%;
         }
 
-        .header-section h2 span {
+        .header-section h2 {
             color: #000000;
         }
 
-        .header section a {
+        .highlight-blue {
             color: #080761;
             font-weight: bold;
-            text-decoration: underline;
         }
 
         /*visi misi mutu*/
@@ -64,6 +103,8 @@
 
         .vmm-box-icon {
             background-color: #cccccc;
+            width: 120px;
+            height: 120px;
             color: #000;
             padding: 20px 40px;
             border-radius: 10px;
@@ -88,8 +129,8 @@
         }
 
         .sertifikat-section h3 {
-            text-aligh: center;
-            margin-botton: 40px;
+            text-align: center;
+            margin-bottom: 40px;
         }
 
         .sertifikat {
@@ -120,9 +161,10 @@
 
             .sertifikat {
                 flex-direction: column !important;
-                aign-items: center;
+                align-items: center;
                 text-align: center;
             }
         }
     </style>
+<?= $this->endSection() ?>
 </html>
