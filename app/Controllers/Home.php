@@ -11,7 +11,7 @@ class Home extends BaseController
 
     public function about()
     {
-        return view('pages/about', ['title' => 'Tentang Kami']);
+        return view('pages/aboutUs', ['title' => 'Tentang Kami']);
     }
 
     public function ProductCategory()
