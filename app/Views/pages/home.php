@@ -754,44 +754,6 @@
         });
     });
 </script>
-=======
-<section class="achievement">
-<div class="flex-container">
-    <div class="columntext">
-        <h1 style="color:blue; font-size: 40px;"> Achievement </h1>
-        <p style="font-size: 25px">Pencapaian PT Nusamas Kimia Persada</p>
-        <p>Sebagai Supplier, Importir, Distributor Bahan Kimia terkemuka di Indonesia, kami sudah mendapat banyak pencapaian selama ini!</p>
-    </div>
-    <div class="columntext">
-        <div class="columntext">
-            <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="400" height="350" class="center">
-        </div>
-        <!-- <div class="flex-container">
-            <div class="columntext">
-                <a href="<?= base_url('/product/detail/1') ?>">
-                    <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="200" height="150">
-                </a>
-            </div> 
-            <div class="columntext">
-                <a href="<?= base_url('/product/detail/1') ?>">
-                    <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="200" height="150">
-                </a>
-            </div> 
-        </div>
-        <div class="flex-container">
-            <div class="columntext">
-                <a href="<?= base_url('/product/detail/1') ?>">
-                    <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="200" height="150">
-                </a>
-            </div> 
-            <div class="columntext">
-                <a href="<?= base_url('/product/detail/1') ?>">
-                    <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="200" height="150">
-                </a>
-            </div> 
-        </div> -->
-    </div>
-</div>
-</section>
+
 
 <?= $this->endSection() ?>

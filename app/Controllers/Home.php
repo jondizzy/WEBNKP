@@ -23,18 +23,12 @@ class Home extends BaseController
     {
         return view('pages/client', ['title' => 'Client']);
     }
-    public function news()
-    {
-        return view('pages/news', ['title' => 'News']);
-    }
+
     public function contact()
     {
         return view('pages/contact', ['title' => 'Contact']);
     }
-    public function newsdetail()
-    {
-        return view('pages/newsdetail', ['title' => 'News Detail']);
-    }
+
     public function clientDetail($slug)
     {
         $clients = [
