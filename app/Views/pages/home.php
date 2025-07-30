@@ -81,7 +81,6 @@
 </style>
 
 
-<!-- BANNER IMAGE SECTION -->
 <?= $this->section('hero') ?>
 <!-- BANNER IMAGE SECTION -->
 <section class="banner-swiper-section">
@@ -120,86 +119,183 @@
 <?= $this->endSection() ?>
 
 
-
-<!-- Bagian Produk -->
-<section class="product-slider-section">
-    <h2>Produk Kami</h2>
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <a href="<?= base_url('/product/detail/1') ?>">
-                        <div class="product-image-wrapper">
-                            <img src="<?= base_url('images/Product1.jpg') ?>" alt="Produk 1" class="product-img">
-                        </div>
-                        <h3 class="product-title">Nama Produk 1</h3>
-                    </a>
+<!-- Diatas Bagian Produk -->
+<section class="background-wrapper">
+    <section class="highlight-section">
+        <div class="container">
+            <div class="highlight-grid">
+                <div class="highlight-item">
+                    <h2>73</h2>
+                    <p>Tahun Berdiri</p>
+                </div>
+                <div class="highlight-item">
+                    <h2>50+</h2>
+                    <p>Produk</p>
+                </div>
+                <div class="highlight-item">
+                    <h2>3</h2>
+                    <p>Segmen Bisnis</p>
+                </div>
+                <div class="highlight-item">
+                    <h2>100+</h2>
+                    <p>Pemasok</p>
                 </div>
             </div>
-
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <a href="<?= base_url('/product/detail/2') ?>">
-                        <div class="product-image-wrapper">
-                            <img src="<?= base_url('images/Product2.jpg') ?>" alt="Produk 2" class="product-img">
-                        </div>
-                        <h3 class="product-title">Nama Produk 2</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <a href="<?= base_url('/product/detail/3') ?>">
-                        <div class="product-image-wrapper">
-                            <img src="<?= base_url('images/Product3.png') ?>" alt="Produk 3" class="product-img">
-                        </div>
-                        <h3 class="product-title">Nama Produk 3</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <a href="<?= base_url('/product/detail/3') ?>">
-                        <div class="product-image-wrapper">
-                            <img src="<?= base_url('images/Product4.jpg') ?>" alt="Produk 3" class="product-img">
-                        </div>
-                        <h3 class="product-title">Nama Produk 4</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <a href="<?= base_url('/product/detail/3') ?>">
-                        <div class="product-image-wrapper">
-                            <img src="<?= base_url('images/Product5.jpg') ?>" alt="Produk 3" class="product-img">
-                        </div>
-                        <h3 class="product-title">Nama Produk 5</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <a href="<?= base_url('/product/detail/3') ?>">
-                        <div class="product-image-wrapper">
-                            <img src="<?= base_url('images/Product6.jpg') ?>" alt="Produk 3" class="product-img">
-                        </div>
-                        <h3 class="product-title">Nama Produk 6</h3>
-                    </a>
-                </div>
-            </div>
-
         </div>
+    </section>
 
-        <!-- Navigasi Panah -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
+    <!-- Style Bagian Diatas Produk -->
+    <style>
+        .highlight-section {
+            color: #fff;
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .highlight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .highlight-item {
+            flex: 1 1 200px;
+            max-width: 200px;
+        }
+
+        .highlight-item h2 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .highlight-item p {
+            font-size: 18px;
+            margin: 0;
+        }
+    </style>
+
+
+    <!-- Bagian Produk -->
+    <section class="product-slider-section">
+        <h2>Produk Kami</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <a href="<?= base_url('/product/detail/1') ?>">
+                            <div class="product-image-wrapper">
+                                <img src="<?= base_url('images/Product1.jpg') ?>" alt="Produk 1" class="product-img">
+                            </div>
+                            <h3 class="product-title">Nama Produk 1</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <a href="<?= base_url('/product/detail/2') ?>">
+                            <div class="product-image-wrapper">
+                                <img src="<?= base_url('images/Product2.jpg') ?>" alt="Produk 2" class="product-img">
+                            </div>
+                            <h3 class="product-title">Nama Produk 2</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <a href="<?= base_url('/product/detail/3') ?>">
+                            <div class="product-image-wrapper">
+                                <img src="<?= base_url('images/Product3.png') ?>" alt="Produk 3" class="product-img">
+                            </div>
+                            <h3 class="product-title">Nama Produk 3</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <a href="<?= base_url('/product/detail/3') ?>">
+                            <div class="product-image-wrapper">
+                                <img src="<?= base_url('images/Product4.jpg') ?>" alt="Produk 3" class="product-img">
+                            </div>
+                            <h3 class="product-title">Nama Produk 4</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <a href="<?= base_url('/product/detail/3') ?>">
+                            <div class="product-image-wrapper">
+                                <img src="<?= base_url('images/Product5.jpg') ?>" alt="Produk 3" class="product-img">
+                            </div>
+                            <h3 class="product-title">Nama Produk 5</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <a href="<?= base_url('/product/detail/3') ?>">
+                            <div class="product-image-wrapper">
+                                <img src="<?= base_url('images/Product6.jpg') ?>" alt="Produk 3" class="product-img">
+                            </div>
+                            <h3 class="product-title">Nama Produk 6</h3>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigasi Panah -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <style>
+        .background-wrapper {
+            background: linear-gradient(rgba(0, 34, 85, 0.8), rgba(0, 34, 85, 0.8)),
+                url('<?= base_url('images/tetes.jpg') ?>') center/cover no-repeat;
+            color: #fff;
+        }
+
+        .highlight-section {
+            padding: 60px 0 20px 0;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .product-slider-section {
+            padding-top: 10px;
+            margin-top: 0;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+        }
+
+        .product-slider-section h2 {
+            color: #fff;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-title {
+            color: #000;
+            text-shadow: none;
+        }
+
+        .product-slider-section {
+            padding-top: 10px;
+            margin-top: 0;
+            background: transparent !important;
+            border-top: none;
+        }
+    </style>
 </section>
+
+
 
 <!-- Bagian Achievement -->
 <section class="achievement-section">
