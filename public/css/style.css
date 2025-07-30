@@ -74,7 +74,8 @@ a {
 
 /* Footer */
 .site-footer {
-    background: #f5f5f5;
+    background-color: #f5f5f5;
+    background-image: url('images/bannerFooter.png');
     padding-left: 20px;
     padding-bottom: 20px;
     font-size: 14px;
