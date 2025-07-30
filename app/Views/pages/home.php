@@ -201,6 +201,7 @@
     </div>
 </section>
 
+<!-- Bagian Achievement -->
 <section class="achievement-section">
     <div class="achievement-container">
         <div class="achievement-text">
@@ -217,6 +218,7 @@
     </div>
 </section>
 
+<!-- Style Achievement -->
 <style>
     .achievement-section {
         padding: 60px 20px;
@@ -301,7 +303,7 @@
     }
 </style>
 
-
+<!-- Bagian Mengapa Memilih Kami -->
 <section class="why-choose-us">
     <div class="why-container">
         <div class="why-text">
@@ -339,6 +341,7 @@
     </div>
 </section>
 
+<!-- Style Mengapa Memilih Kami -->
 <style>
     .why-choose-us {
         background: #ffffff;
@@ -463,6 +466,7 @@
 </style>
 
 
+<!-- Bagian News -->
 <section id="news" class="news-section">
     <div class="container">
         <div class="news-header">
@@ -470,96 +474,47 @@
             <a href="<?= base_url('/news') ?>" class="see-all">See All →</a>
         </div>
 
-        <?php
-        $news = [
-            [
-                'title' => 'Pabrik Baru Dibuka di Karawang',
-                'summary' => 'Kami resmi membuka fasilitas baru di Karawang untuk memperluas distribusi nasional.',
-                'image' => '/images/news/news 1.webp',
-                'slug' => 'pabrik-baru-karawang',
-                'category' => 'Press Release',
-                'published_at' => '2025-07-26',
-            ],
-            [
-                'title' => 'Kemitraan Strategis Baru',
-                'summary' => 'Kami menjalin kemitraan dengan perusahaan internasional untuk memperkuat rantai pasokan.',
-                'image' => '/images/news/news 2.jpg',
-                'slug' => 'kemitraan-strategis',
-                'category' => 'Blog',
-                'published_at' => '2025-07-25',
-            ],
-            [
-                'title' => 'Sertifikasi ISO 9001:2024',
-                'summary' => 'Perusahaan kami meraih sertifikasi ISO terbaru sebagai bukti kualitas dan standar tinggi.',
-                'image' => '/images/news/news 3.jpg',
-                'slug' => 'sertifikasi-iso-9001',
-                'category' => 'Blog',
-                'published_at' => '2025-07-24',
-            ],
-            [
-                'title' => 'Pelatihan Karyawan Nasional',
-                'summary' => 'Kami mengadakan pelatihan karyawan secara nasional untuk meningkatkan kompetensi tim.',
-                'image' => '/images/news/news 4.jpg',
-                'slug' => 'pelatihan-karyawan-nasional',
-                'category' => 'Training',
-                'published_at' => '2025-07-23',
-            ],
-            [
-                'title' => 'Produk Baru untuk Industri Makanan',
-                'summary' => 'Kami meluncurkan produk kimia baru yang aman dan efisien untuk industri makanan dan minuman.',
-                'image' => '/images/news/news 5.jpg',
-                'slug' => 'produk-baru-industri-makanan',
-                'category' => 'Product Launch',
-                'published_at' => '2025-07-22',
-            ],
-            [
-                'title' => 'Ekspansi ke Pasar Asia Tenggara',
-                'summary' => 'Kami memperluas distribusi kami ke beberapa negara Asia Tenggara untuk memperluas pasar ekspor.',
-                'image' => '/images/news/news 6.jpeg',
-                'slug' => 'ekspansi-asia-tenggara',
-                'category' => 'Business',
-                'published_at' => '2025-07-21',
-            ],
-        ];
-        ?>
-
-        <div class="news-wrapper">
-            <!-- Left Big News -->
-            <?php $main = $news[0]; ?>
-            <div class="news-main">
-                <a href="<?= base_url('news/' . $main['slug']) ?>" class="news-link">
-                    <img src="<?= base_url($main['image']) ?>" alt="<?= esc($main['title']) ?>" class="news-main-img">
-                    <div class="news-main-content">
-                        <p class="news-category"><?= esc($main['category']) ?></p>
-                        <h3 class="news-title"><?= esc($main['title']) ?></h3>
-                        <p class="news-summary"><?= esc($main['summary']) ?></p>
-                        <p class="news-date"><?= date('d M Y', strtotime($main['published_at'])) ?></p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Right List News -->
-            <div class="news-list">
-                <?php foreach (array_slice($news, 1) as $item): ?>
-                    <a href="<?= base_url('news/' . $item['slug']) ?>" class="news-item-link">
-                        <div class="news-item">
-                            <img src="<?= base_url($item['image']) ?>" alt="<?= esc($item['title']) ?>" class="news-thumb">
-                            <div class="news-item-body">
-                                <p class="news-category"><?= esc($item['category']) ?></p>
-                                <h4 class="news-title"><?= esc($item['title']) ?></h4>
-                                <p class="news-summary"><?= esc($item['summary']) ?></p>
-                                <p class="news-date"><?= date('d M Y', strtotime($item['published_at'])) ?></p>
-                            </div>
+        <?php if (!empty($news) && count($news) > 0): ?>
+            <div class="news-wrapper">
+                <!-- Left Big News -->
+                <?php $main = $news[0]; ?>
+                <div class="news-main">
+                    <a href="<?= base_url('/newsdetail/' . $main['id_news']) ?>" class="news-item-link">
+                        <img src="<?= base_url('images/news/' . $main['image_url']) ?>" alt="<?= esc($main['title']) ?>" class="news-main-img">
+                        <div class="news-main-content">
+                            <p class="news-category"><?= esc($main['category']) ?></p>
+                            <h3 class="news-title"><?= esc($main['title']) ?></h3>
+                            <p class="news-summary"><?= word_limiter($main['description'], 20) ?></p>
+                            <p class="news-date"><?= date('d M Y', strtotime($main['date_posted'])) ?></p>
                         </div>
                     </a>
-                <?php endforeach; ?>
+                </div>
+
+                <!-- Right List News -->
+                <div class="news-list">
+                    <?php foreach (array_slice($news, 1) as $item): ?>
+                        <a href="<?= base_url('/newsdetail/' . $item['id_news']) ?>" class="news-item-link">
+                            <div class="news-item">
+                                <img src="<?= base_url('images/news/' . $item['image_url']) ?>" alt="<?= esc($item['title']) ?>" class="news-thumb">
+                                <div class="news-item-body">
+                                    <p class="news-category"><?= esc($item['category']) ?></p>
+                                    <h4 class="news-title"><?= esc($item['title']) ?></h4>
+                                    <p class="news-summary"><?= word_limiter($item['description'], 20) ?></p>
+                                    <p class="news-date"><?= date('d M Y', strtotime($item['date_posted'])) ?></p>
+                                </div>
+                            </div>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div>
+        <?php else: ?>
+            <p class="text-muted">No news available at the moment.</p>
+        <?php endif; ?>
     </div>
 </section>
 
 
-
+<!-- Style News -->
 <style>
     .news-section {
         padding: 60px 20px;
