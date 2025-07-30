@@ -227,9 +227,6 @@
             max-width: 1200px;
             width: 90%;
             margin: 0 auto;
-            /* display: flex;
-            gap: 20px;
-            align-items: flex-start; */
             margin-bottom: 40px;
             padding: 0 20px;
         }
