@@ -5,22 +5,74 @@
              <section class="header-section">
                 <div class="text-aligner">
                     <h2><span class="highlight-blue">
-                    20 tahun</span> berdiri sebagai <br>
+                    54 tahun</span> berdiri sebagai <br>
                     pemasok bahan kimia terpercaya<br>
                 </h2>
-                <div class="timeline">
+                <p style="font-size:14px; margin-left:30px;">
+                    let us tell you our story. click on the years below
+                </p>
+                </div>    
                    <div class="event-image-container">
-                        <img src="/images/aboutUs-timeline-text.png" alt="gambar timeline">
+                    <div class="image-wrapper">
+                        <img src="/images/aboutUs-history-line.png" alt="gambar timeline" class="history-img">
+
+                        <button 
+                        class="button year-1"
+                        data-year="1"
+                        data-bs-toggle="tooltip"
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        title="<img src='/images/client1.jpeg' width='100%'>">1971</button>
+                        <button 
+                        class="button year-2"
+                        data-year="2"
+                        data-bs-toggle="tooltip"
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        title="<img src='/images/client2.jpg' width='100%'>">1975</button>
+                        <button 
+                        class="button year-3"
+                        data-year="3"
+                        data-bs-toggle="tooltip"
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        title="<img src='/images/client3.jpg' width='100%'>">1999</button>
+                        <button 
+                        class="button year-4"
+                        data-year="4"
+                        data-bs-toggle="tooltip"
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        title="<img src='/images/client4.jpg' width='100%'>">2005</button>
+                        <button 
+                        class="button year-5"
+                        data-year="5"
+                        data-bs-toggle="tooltip"
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        title="<img src='/images/Product1.jpg' width='100%'>">2007</button>
+                        <button 
+                        class="button year-6"
+                        data-year="6"
+                        data-bs-toggle="tooltip"
+                        data-bs-html="true"
+                        data-bs-placement="top"
+                        title="<img src='/images/Product2.jpg' width='100%'>">2013</button>
+
+                    </div>
                    </div>
-                </div>
-                <div class="header-par-container">
-                    <p>
-                        Prethink call in the air support, and low hanging fruit nail jelly to the hothouse wall let's circle back tomorrow, or can you send me an invite?. We need to get the vernacular right curate fire up your browser. Unlock meaningful moments of relaxation disband the squad but rehydrate as needed we need distributors to evangelize the new line to local markets we need to get the vernacular right, and introduccion increase the resolution, scale it up we need a larger print. Offline this discussion. On this journey dogpile that. This proposal is a win-win situation which will cause a stellar paradigm shift, and produce a multi-fold increase in deliverables i am dead inside, yet roll back strategy low-hanging fruit. But what's the real problem we're trying to solve here? forcing function we need evergreen content, so rehydrate the team. Knowledge is power flesh that out. Donuts in the break room iâ€™ve been doing some research this morning and we need to better put it on the parking lot churning anomalies meeting assassin one-sheet. Run it up the flagpole, ping the boss and circle back crisp ppt, yet product market fit i know you're busy. Let's pressure test this gain traction show pony. Let's see if we can dovetail these two projects. Zeitgeist UX, create spaces to explore whatâ€™s next, or pro-sumer software, bells and whistles deploy. Drink the Kool-aid onward and upward, productize the deliverables and focus on the bottom line. Great plan! let me diarize this, and we can synchronise ourselves at a later timepoint globalize, yet form without content style without meaning no scraps hit the floor. Value-added lean into that problem . Make it more corporate please dogpile that up the flagpole bazooka that run it past the boss jump right in and banzai attack will they won't they its all greek to me unless they bother until the end of time maybe vis a vis too many cooks over the line open door policy, for quantity. First-order optimal strategies design thinking, or bells and whistles, so a tentative event rundown is attached for your reference, including other happenings on the day you are most welcome to join us beforehand for a light lunch we would also like to invite you to other activities on the day, including the interim and closing panel discussions on the intersection of businesses and social innovation, and on building a stronger social innovation eco-system respectively, nor finance i also believe it's important for every member to be involved and invested in our company and this is one way to do so, for donuts in the break room.
-                    </p>
-                </div>
-                </div>
-                
-                
+                <div class="text-aligner">
+                    <div class="header-par-container">
+                        <div id="content" class="fade transition">
+                            <div id="content-text">
+                                <!--text per year here-->
+                            </div>
+                            <div id="content-image">
+                                <!--image per year here-->
+                            </div>
+                        </div>
+                    </div>
+                </div>             
              </section>
             <!-- Core Values Section -->
             <section class="corevalue-section">
@@ -86,7 +138,9 @@
                     </div>
                 </div> 
             </section>
-     <!-- CSS styles -->
+
+
+     <!-- CSS -->
     <style>
         body {
             margin: 0;
@@ -125,39 +179,107 @@
         }
 
         /*timeline*/
-        .timeline {
+        /* .timeline {
             display: flex;
             align-items: center;
             margin-bottom: 50px;
-        }
+        } */
 
-        .event{
+        /* .event{
             text-align: center;
             position: relative;
-        }
+        } */
 
         .event-image-container {
-            max-width: 400px;
-            margin-top: 56px;
-            margin-left: 20px;
+            max-width: 1400px;
+            width: 100%;
+            margin: 0 auto;
         }
-        
-        .event p {
-            font-size: 7px;
-            margin: 0;
-            line-height: 1.3;
+
+        .image-wrapper {                  /*responsive to different res scale*/
+            position: relative;
+            width: 100%;
+        }
+
+        .history-img {
+            width: 100%;
+            display: block;
+        }
+
+        .button {
+            position: absolute;
+            background: none;
+            border: none;
+            color: #080761;
+            font-weight: bold;
+            font-size: 16px;
+            cursor: pointer;
+            padding: 0;
+        }
+
+        .year-1 {
+            left: 7%;
+            top: 77%;
+        }
+
+        .year-2 {
+            left: 19%;
+            top: 75%;
+        }
+
+        .year-3 {
+            left: 32.3%;
+            top: 45.5%;
+        }
+
+        .year-4 {
+            left: 47%;
+            top: 68%;
+        }
+
+        .year-5 {
+            left: 67.3%;
+            top: 26%;
+        }
+
+        .year-6 {
+            left: 83.5%;
+            top: 35.7%;
+        }
+
+        .fade.transition {
+            opacity: 1;
+            transition: opacity 0.5s ease-in-out;
+        }
+
+        .fade.transition.fade-out {
+            opacity: 0;
         }
 
         .header-par-container {
-            max-width: 1200px;
-            width: 90%;
+            display: flex;
+            align-items: flex-start;
+            gap: 20px;
             margin-left: 20px;
             margin-top: 56px;
+        }
+
+        #content-text {
+            flex: 1;
+            max-height: calc(1.5em * 10);             /*limit text line to only 10 else scroll*/
+            overflow-y: auto;
+            padding-right: 10px;
+            line-height: 1.5em;
+        }
+
+        #content-image img {
+            max-width: 200px;
+            height: auto;
         }
 
         .header-section p {
             color: #000000;
-            font-size: 16px;
+            font-size: 14px;
             margin-top: 10px;
             
         }
@@ -289,5 +411,79 @@
             }
         }
     </style>
+
+
+    <!-- JavaScript -->    
+    <script>
+
+        /*initialize tooltip from bootstrap*/
+        document.addEventListener('DOMContentLoaded', function () {
+            const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+            tooltipTriggerList.forEach(function (el) {
+                new bootstrap.Tooltip(el);
+            });
+
+            /*change content per year clicked*/
+            const content = {
+                "1": {
+                    text: "Prethink call in the air support... etc.",
+                    image: "/images/client1.jpeg"
+                },
+                "2": {
+                    text: "But what's the real problem we're trying to solve here?...",
+                    image: "/images/client2.jpg"
+                },
+                "3": {
+                    text: "Let's pressure test this gain traction...",
+                    image: "/images/client3.jpg"
+                },
+                "4": {
+                    text: "Value-added lean into that problem...",
+                    image: "/images/client4.jpg"
+                },
+                "5": {
+                    text: "Prethink call in the air support...",
+                    image: "/images/Product1.jpg"
+                },
+                "6": {
+                    text: "This proposal is a win-win situation...",
+                    image: "/images/Product2.jpg"
+                }
+                };
+
+                document.querySelectorAll('.year-1, .year-2, .year-3, .year-4, .year-5, .year-6').forEach(btn => {
+                btn.addEventListener('click', () => {
+                    const year = btn.getAttribute('data-year');
+                    const contentEl = document.getElementById('content');
+                    const textEl = document.getElementById('content-text');
+                    const imgEl = document.getElementById('content-image');
+
+                    if (!content[year]) {
+                    console.warn(`No content found for year ${year}`);
+                    return;
+                    }
+
+                    // Fade out
+                    contentEl.classList.add('fade-out');
+
+                    setTimeout(() => {
+                    // Insert content
+                    textEl.innerHTML = `<p>${content[year].text}</p>`;
+                    imgEl.innerHTML = `<img src="${content[year].image}" alt="Image for year ${year}" style="max-width:100%; height:auto;">`;
+
+                    // Fade in
+                    contentEl.classList.remove('fade-out');
+                    }, 500);
+                });
+                });
+
+
+
+        }); //end of DOMContentLoaded
+
+        
+    </script>
+
+
 <?= $this->endSection() ?>
 </html>
