@@ -27,4 +27,7 @@ $routes->post('admin/update_news/(:num)', 'AdminController::updateNews/$1');
 $routes->get('admin/delete_news/(:num)', 'AdminController::deleteNews/$1');
 
 $routes->get('/logout', 'AdminController::logout');
+
 $routes->get('/productdetail', 'ProductController::productdetail');
+
+$routes->get('/productdetail', 'Home::productdetail');

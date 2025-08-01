@@ -1,197 +1,194 @@
 <?= $this->extend('layouts/main') ?>
 
 <?= $this->section('content') ?>
-
-<!DOCTYPE html>
-<html lang="en">
-
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
-  <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
-  <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js" defer></script>
-  <style>
-    /* body */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<style>
+    .food {
+        background-color: #f0f8ff;
+        border-radius: 18px;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
-    body {
-      font-family: 'Segoe UI', sans-serif;
-      display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+    .esensial-oil {
+        background-color: #fff8f0;
+        border-radius: 18px;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
-    body,
-    html {
-      margin: 0;
-      padding: 0;
-      width: 100%;
-      overflow-x: hidden;
+    .agrochemicals {
+        background-color: #F0FFF1;
+        border-radius: 18px;
+        width: 90%;
+        max-width: 1200px;
+        margin: 0 auto;
     }
 
-    .main {
-      display: flex;
-      width: 100%;
-      margin: 0;
-      padding: 0;
+    .Product-text {
+        padding: 30px;
+        margin-bottom: 40px;
+        position: relative;
     }
 
-    .sidebar {
-      width: 200px;
-      background-color: #333;
-      color: white;
-      padding: 20px;
-      flex-shrink: 0;
-      /* tambahkan ini jika tidak ada */
-      margin: 0;
+    .Product-text h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
     }
 
-    /* Content */
-    .content {
-      flex: 1;
-      background-color: #f4f4f4;
-      padding: 20px;
-    }
-
-    .category-detail {
-      background-color: lightskyblue;
-      text-align: center;
-      padding: 20px;
-    }
-
-    /* table */
-    table {
-      width: 100%;
-      border-collapse: collapse;
-      padding-top: 20px;
-    }
-
-    th,
-    td {
-      width: 33.33%;
-      /* Equal width for 3 columns */
-      border: 1px solid black;
-      text-align: center;
-      padding: 8px;
-    }
-
-    td img {
-      display: block;
-      margin: 0 auto 8px auto;
-      max-width: 100%;
-      height: auto;
-    }
-
-    .caption {
-      font-weight: bold;
-    }
-
-    /* Header */
-    .site-header {
-        background-color: white;
-        box-shadow: 0 1px 5px rgba(0,0,0,0.05);
-        padding: 15px 0;
-        position: sticky;
-        top: 0;
-        z-index: 10;
-        padding: 15px;
-    }
-
-    .header-container {
+    .Product-container {
         display: flex;
-        justify-content: space-between;
-        align-items: center;
-        padding-left: 9.5%;
-        padding-right: 10.5%;
+        justify-content: space-evenly;
+        margin-bottom: 40px;
+        padding-bottom: 90px;
     }
 
-
-    .logo-wrapper {
-      display: flex;
-      align-items: center;
+    .Product-container img {
+        width: 160px;
+        height: 120px;
+        border-radius: 8px;
     }
 
-    .logo-img {
-      height: 40px;
-      margin-right: 10px;
+    .explore-button {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        background-color: #000066;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 30px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
     }
 
-    .site-name {
-      font-weight: bold;
-      color: #222;
-      font-size: 16px;
+    .explore-button:hover {
+        background-color: #000044;
     }
 
-    .main-nav a {
-      margin-left: 20px;
-      font-weight: 500;
-      color: #333;
-      transition: color 0.3s;
+    @media (max-width: 768px) {
+        .image-row {
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .Product-container img {
+            width: 100%;
+        }
+
+        W .explore-button {
+            position: static;
+            display: inline-block;
+            padding-top: 15px;
+            margin-top: 20px;
+        }
     }
 
-    .main-nav a:hover {
-      color: #4c44da;
+    .bottom-message {
+        text-align: center;
+        margin: 60px 0 30px 0;
+        font-size: 18px;
     }
 
-    .wa-icon {
-      font-size: 20px;
-      color: #25D366;
+    .bottom-message button {
+        margin-top: 10px;
+        padding: 10px 20px;
+        background-color: #000066;
+        color: white;
+        border: none;
+        border-radius: 30px;
+        cursor: pointer;
+        font-size: 14px;
+        transition: background-color 0.3s ease;
     }
 
-    /* Footer */
-    .site-footer {
-      background: #f5f5f5;
-      text-align: center;
-      padding: 20px 0;
-      font-size: 14px;
-      bottom: 0;
-      color: #666;
+    .bottom-message button:hover {
+        background-color: #000044;
     }
-  </style>
-</head>
+</style>
 
-<body>
 
-  <div class="main">
-    <aside class="sidebar">
-      <h2>Category</h2>
-      <br>
-      <a href="#">Food Category</a>
-      <a href="#">Essential Oils</a>
-      <a href="#">Speciality</a>
-    </aside>
+<section class="food">
+    <div class="Product-text">
+        <h2><strong>Food Ingredients</strong></h2>
+        <p>
+            Kategori Makanan mencakup bahan-bahan esensial dan aditif yang
+            meningkatkan kualitas, rasa, dan stabilitas produk makanan.
+            Bahan-bahan ini memainkan peran krusial dalam berbagai aplikasi
+            pengolahan dan manufaktur makanan.
+        </p>
+        <div class="Product-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
+                alt="Food Image 1" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
+                alt="Food Image 1" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
+                alt="Food Image 1" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
+                alt="Food Image 1" />
+        </div>
+        <a class="explore-button" href="<?= base_url('/productdetail') ?>">Explore more ⟶</a>
+    </div>
+</section>
 
-    <section class="content">
-      <div class="category-detail" style="margin: 20px;">
-        <h2 style="text-align: center;">Food Ingridient</h2>
-        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Vitae repudiandae, eos magnam iusto laborum deleniti nesciunt molestiae hic facilis temporibus veniam omnis optio ad expedita magni, maiores accusantium vero! Voluptate?</p>
-      </div>
-      <table>
-        <tr>
-          <th>
-            <img src="<?= base_url('images/Product1.jpg') ?>" alt="Produk 1" width="300" height="250">
-            <div class="caption"><a href="<?= base_url('/productdetail') ?>">food 1</a></div>
-            
-          </th>
-          <th>
-            <img src="<?= base_url('images/Product2.jpg') ?>" alt="Produk 1" width="300" height="250">
-            <div class="caption">Food 2</div>
-          </th>
-          <th>
-            <img src="<?= base_url('images/Product3.png') ?>" alt="Produk 1" width="300" height="250">
-            <div class="caption">Food 3</div>
-          </th>
-        </tr>
-      </table>
-    </section>
-  </div>
+<section class="esensial-oil">
+    <div class="Product-text">
+        <h2><strong>Essential Oils</strong></h2>
+        <p>
+            Kategori Makanan mencakup bahan-bahan esensial dan aditif yang meningkatkan kualitas, rasa, dan stabilitas produk makanan. Bahan-bahan ini memainkan peran krusial dalam berbagai aplikasi pengolahan dan manufaktur makanan.
+        </p>
+        <div class="Product-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
+                alt="Food Image 1" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
+                alt="Food Image 1" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
+                alt="Food Image 1" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
+                alt="Food Image 1" />
+        </div>
+        <a class="explore-button" href="#">Explore more ⟶</a>
+    </div>
+</section>
 
-</body>
+<section class="agrochemicals">
+    <div class="Product-text">
+        <h2><strong>Agrochemicals</strong></h2>
+        <p>
+            Kategori Makanan mencakup bahan-bahan esensial dan aditif yang meningkatkan kualitas, rasa, dan stabilitas produk makanan. Bahan-bahan ini memainkan peran krusial dalam berbagai aplikasi pengolahan dan manufaktur makanan.
+        </p>
+        <div class="Product-container">
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
+                alt="Food Image 1" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
+                alt="Food Image 1" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
+                alt="Food Image 1" />
+            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
+                alt="Food Image 1" />
+        </div>
+        <a class="explore-button" href="#">Explore more ⟶</a>
+    </div>
+</section>
 
-</html>
+<!-- bottom section -->
+<section>
+    <div class="bottom-message">
+        <p>Can’t find what you’re looking for?</p>
+        <button onclick="scrollToTop()">Back to Top ↑</button>
+    </div>
+</section>
+
+<!-- back on top funtcion -->
+<script>
+    function scrollToTop() {
+        window.scrollTo({
+            top: 0,
+            behavior: 'smooth'
+        });
+    }
+</script>
 <?= $this->endSection() ?>

@@ -7,6 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <link rel="stylesheet" href="https://unpkg.com/swiper@10/swiper-bundle.min.css" />
     <script src="https://unpkg.com/swiper@10/swiper-bundle.min.js" defer></script>
 </head>
@@ -43,9 +44,28 @@
 
     <!-- FOOTER -->
     <footer class="site-footer">
-        <div class="container">
-            <p>&copy; 2025 PT. Nusamas Kimia Persada<br>
-                Hak cipta dilindungi undang-undang.</p>
+        <div class="site-footer-container">
+            <!--Address section-->
+            <div class="footer-address">
+                <h3>Nusamas Kimia Persada</h3>
+                <p>
+                    BSD Junction, Jl. Pahlawan Seribu No.48A Blok A, BSD City,<br>
+                    Kec. Serpong, Kota Tangerang Selatan, Jawa Barat 15322
+                </p>
+            </div>
+
+            <!--Explore section-->
+            <div class="footer-explore">
+                <h3>Explore</h3>
+                <ul>
+                    <li><a href="<?= base_url('/') ?>">Home</a></li>
+                    <li><a href="<?= base_url('/aboutUs') ?>">About</a></li>
+                    <li><a href="<?= base_url('/ProductCategory') ?>">Product</a></li>
+                    <li><a href="<?= base_url('/client') ?>">Client</a></li>
+                    <li><a href="<?= base_url('/contact') ?>">Contact</a></li>
+                    <li><a href="<?= base_url('/news') ?>">News</a></li>
+                    </ul>
+            </div>
         </div>
     </footer>
 
@@ -80,6 +100,7 @@
         });
     </script>
 
+  
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.getElementById('menuToggle');
@@ -95,6 +116,9 @@
         <i class="fab fa-whatsapp"></i>
         <span class="wa-label">Chat Kami</span>
     </a>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 

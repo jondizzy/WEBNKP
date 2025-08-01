@@ -7,15 +7,14 @@
     margin-bottom: 30px;
   }
 
-  table {
-    width: 100%;
-    border-collapse: separate;
-    border-spacing: 0 30px;
-    /* Jarak antar baris */
-    padding: 20px;
-    max-width: 1200px;
-    margin: 0 auto;
-  }
+    table {
+      width: 100%;
+      border-collapse: separate;
+      border-spacing: 0 30px; /* Jarak antar baris */
+      padding: 20px;
+      max-width: 1200px;
+      margin: 0 auto;
+    }
 
   td {
     vertical-align: top;
@@ -80,7 +79,7 @@
     }
   }
 </style>
-
+<!-- news bagus -->
 <section>
   <table>
     <?php if (!empty($news)) : ?>
