@@ -64,7 +64,7 @@
                     <li><a href="<?= base_url('/client') ?>">Client</a></li>
                     <li><a href="<?= base_url('/contact') ?>">Contact</a></li>
                     <li><a href="<?= base_url('/news') ?>">News</a></li>
-                    </ul>
+                </ul>
             </div>
         </div>
     </footer>
@@ -100,7 +100,7 @@
         });
     </script>
 
-  
+
     <script>
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.getElementById('menuToggle');
@@ -117,7 +117,7 @@
         <span class="wa-label">Chat Kami</span>
     </a>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
