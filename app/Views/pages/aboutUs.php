@@ -247,7 +247,7 @@
             opacity: 0;
         }
 
-        .header-container {
+        .header-container .about {
             display: flex;
             align-items: flex-start;
             gap: 35px;
