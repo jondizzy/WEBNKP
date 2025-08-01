@@ -84,11 +84,11 @@
 
     @media (max-width: 768px) {
         .banner-swiper-section {
-            height: 250px;
+            height: 200px;
         }
 
         .hero-section {
-            height: 50vh;
+            height: 30vh;
         }
 
         .hero-content h1 {
@@ -256,66 +256,66 @@
 
                 <div class="swiper-slide">
                     <div class="product-card">
-                        <a href="<?= base_url('/product/detail/1') ?>">
+                        <a href="<?= base_url('productdetail') ?>">
                             <div class="product-image-wrapper">
-                                <img src="<?= base_url('images/Product1.jpg') ?>" alt="Produk 1" class="product-img">
+                                <img src="<?= base_url('images/Product 1.jpg') ?>" alt="Produk 1" class="product-img">
                             </div>
-                            <h3 class="product-title">Nama Produk 1</h3>
+                            <h3 class="product-title">Kertas</h3>
                         </a>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="product-card">
-                        <a href="<?= base_url('/product/detail/2') ?>">
+                        <a href="<?= base_url('productdetail') ?>">
                             <div class="product-image-wrapper">
-                                <img src="<?= base_url('images/Product2.jpg') ?>" alt="Produk 2" class="product-img">
+                                <img src="<?= base_url('images/Product 2.jpg') ?>" alt="Produk 2" class="product-img">
                             </div>
-                            <h3 class="product-title">Nama Produk 2</h3>
+                            <h3 class="product-title">Kempu Kecil</h3>
                         </a>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="product-card">
-                        <a href="<?= base_url('/product/detail/3') ?>">
+                        <a href="<?= base_url('productdetail') ?>">
                             <div class="product-image-wrapper">
-                                <img src="<?= base_url('images/Product3.png') ?>" alt="Produk 3" class="product-img">
+                                <img src="<?= base_url('images/Product 3.jpg') ?>" alt="Produk 3" class="product-img">
                             </div>
-                            <h3 class="product-title">Nama Produk 3</h3>
+                            <h3 class="product-title">Drum</h3>
                         </a>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="product-card">
-                        <a href="<?= base_url('/product/detail/3') ?>">
+                        <a href="<?= base_url('productdetail') ?>">
                             <div class="product-image-wrapper">
-                                <img src="<?= base_url('images/Product4.jpg') ?>" alt="Produk 3" class="product-img">
+                                <img src="<?= base_url('images/Product 4.jpg') ?>" alt="Produk 4" class="product-img">
                             </div>
-                            <h3 class="product-title">Nama Produk 4</h3>
+                            <h3 class="product-title">Gentong</h3>
                         </a>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="product-card">
-                        <a href="<?= base_url('/product/detail/3') ?>">
+                        <a href="<?= base_url('productdetail') ?>">
                             <div class="product-image-wrapper">
-                                <img src="<?= base_url('images/Product5.jpg') ?>" alt="Produk 3" class="product-img">
+                                <img src="<?= base_url('images/Product 5.jpg') ?>" alt="Produk 5" class="product-img">
                             </div>
-                            <h3 class="product-title">Nama Produk 5</h3>
+                            <h3 class="product-title">Kempu Besar</h3>
                         </a>
                     </div>
                 </div>
 
                 <div class="swiper-slide">
                     <div class="product-card">
-                        <a href="<?= base_url('/product/detail/3') ?>">
+                        <a href="<?= base_url('productdetail') ?>">
                             <div class="product-image-wrapper">
-                                <img src="<?= base_url('images/Product6.jpg') ?>" alt="Produk 3" class="product-img">
+                                <img src="<?= base_url('images/Product 6.jpg') ?>" alt="Produk 6" class="product-img">
                             </div>
-                            <h3 class="product-title">Nama Produk 6</h3>
+                            <h3 class="product-title">Minyak</h3>
                         </a>
                     </div>
                 </div>
@@ -578,7 +578,7 @@
                 dalam produk bahan kimia, mulai dari pencampuran, pengemasan hingga pengiriman.
             </p>
             <p>Keunggulan kami meliputi:</p>
-            <a href="<?= base_url('/about') ?>" class="about-btn">Tentang Kami</a>
+            <a href="<?= base_url('aboutUs') ?>" class="about-btn">Tentang Kami</a>
         </div>
 
         <div class="why-features">

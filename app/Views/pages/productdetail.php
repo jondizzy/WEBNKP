@@ -109,7 +109,7 @@
             </p>
             <p><strong>Alami. Murni. Menyentuh hati.</strong></p>
         </div>
-        <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s" alt="Minyak alami"> <!-- Replace with actual image URL -->
+        <img src="<?= base_url('images/Product 6.jpg') ?>" alt="Minyak Alami" class="product-img">
     </div>
 </section>
 

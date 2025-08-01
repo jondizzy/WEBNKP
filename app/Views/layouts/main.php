@@ -115,6 +115,17 @@
         });
     </script>
 
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const nav = document.querySelector('.main-nav');
+
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
+
     <a href="https://wa.me/6281321693363" class="wa-float" target="_blank">
         <i class="fab fa-whatsapp"></i>
         <span class="wa-label">Chat Kami</span>
