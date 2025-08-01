@@ -16,9 +16,19 @@
         color: white;
     }
 
+    .text-container {
+        padding: 20px;
+        margin-top: auto;
+        margin-bottom: auto;
+    }
+
+    h1 {
+        font-size: 52px;
+    }
+
     .product-detail {
         background-color: #1f2a75;
-        color: white;
+        color: #E2E2E2;
         padding: 20px;
         display: flex;
         justify-content: space-between;
