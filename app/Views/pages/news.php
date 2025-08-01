@@ -13,7 +13,7 @@
       border-spacing: 0 30px; /* Jarak antar baris */
       padding: 20px;
       max-width: 1200px;
-    margin: 0 auto;
+      margin: 0 auto;
     }
 
     td {
@@ -74,7 +74,7 @@
       }
     }
 </style>
-
+<!-- news bagus -->
 <section>
     <table>
     <tr>

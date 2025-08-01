@@ -35,6 +35,10 @@ class Home extends BaseController
     {
         return view('pages/newsdetail', ['title' => 'News Detail']);
     }
+    public function productdetail()
+    {
+        return view('pages/productdetail', ['title' => 'Product Detail']);
+    }
     public function clientDetail($slug)
     {
         $clients = [

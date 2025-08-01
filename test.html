@@ -1,64 +1,123 @@
 <!DOCTYPE html>
-<html lang="id">
-<head>
-    <meta charset="UTF-8">
-    <title>Daftar Berita</title>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>Product Sections</title>
     <style>
-        table {
-            width: 100%;
-            border-collapse: collapse;
+      .food {
+        background-color: #f0f8ff;
+        border-radius: 18px;
+      }
+      .esensial-oil {
+        background-color: #fff8f0;
+        border-radius: 18px;
+      }
+      .Product-text {
+        padding: 30px;
+        margin-bottom: 40px;
+        position: relative;
+      }
+      .Product-text h2 {
+        font-size: 28px;
+        margin-bottom: 10px;
+      }
+
+      .Product-text h2 strong {
+        font-weight: 900;
+      }
+
+      .Product-text p {
+        max-width: 700px;
+        line-height: 1.6;
+        margin-bottom: 30px;
+      }
+
+      .Product-container {
+        display: flex;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 20px;
+        margin-bottom: 40px;
+      }
+
+      .Product-container img {
+        width: 22%; /* Fits 4 images in a row with spacing */
+        border-radius: 8px;
+      }
+
+      .explore-button {
+        position: absolute;
+        bottom: 30px;
+        right: 30px;
+        background-color: #000066;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 30px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: background-color 0.3s ease;
+      }
+      .explore-button:hover {
+        background-color: #000044;
+      }
+      @media (max-width: 768px) {
+        .image-row {
+          flex-direction: column;
+          align-items: center;
         }
-        tr {
-            border-bottom: 1px solid #ccc;
+
+        .Product-container img {
+          width: 80%;
         }
-        td {
-            padding: 15px;
-            vertical-align: top;
+
+        .explore-button {
+          position: static;
+          display: inline-block;
+          margin-top: 20px;
         }
-        .berita-judul {
-            font-size: 1.2em;
-            font-weight: bold;
-            margin-bottom: 5px;
-        }
-        .berita-deskripsi {
-            color: #555;
-        }
-        .berita-gambar {
-            width: 150px;
-        }
-        .berita-gambar img {
-            width: 100%;
-            height: auto;
-            border-radius: 4px;
-        }
+      }
     </style>
-</head>
-<body>
+  </head>
+  <body>
+    <!-- food ingridien -->
+    <section class="food">
+      <div class="Product-text">
+        <h2><strong>Food Ingredients</strong></h2>
+        <p>
+          Kategori Makanan mencakup bahan-bahan esensial dan aditif yang
+          meningkatkan kualitas, rasa, dan stabilitas produk makanan.
+          Bahan-bahan ini memainkan peran krusial dalam berbagai aplikasi
+          pengolahan dan manufaktur makanan.
+        </p>
+        <div class="Product-container">
+          <img src="https://via.placeholder.com/150" alt="Food Image 1" />
+          <img src="https://via.placeholder.com/150" alt="Food Image 2" />
+          <img src="https://via.placeholder.com/150" alt="Food Image 3" />
+          <img src="https://via.placeholder.com/150" alt="Food Image 4" />
+        </div>
+        <a class="explore-button" href="#">Explore more ⟶</a>
+      </div>
+    </section>
 
-<h2>Daftar Berita Terbaru</h2>
-
-<table>
-    <tr>
-        <td class="berita-gambar">
-            <img src="https://via.placeholder.com/150" alt="Gambar Berita 1">
-        </td>
-        <td>
-            <div class="berita-judul">Judul Berita Pertama</div>
-            <div class="berita-deskripsi">Ini adalah deskripsi singkat untuk berita pertama yang menjelaskan isi berita secara umum.</div>
-        </td>
-    </tr>
-    <tr>
-        <td class="berita-gambar">
-            <img src="https://via.placeholder.com/150" alt="Gambar Berita 2">
-        </td>
-        <td>
-            <div class="berita-judul">Judul Berita Kedua</div>
-            <div class="berita-deskripsi">Deskripsi singkat berita kedua yang memberikan ringkasan isi berita dengan jelas.</div>
-        </td>
-        
-    </tr>
-    <!-- Tambahkan lebih banyak baris berita di sini -->
-</table>
-
-</body>
+    <section class="esensial-oil">
+      <div class="Product-text">
+        <h2><strong>Food Ingredients</strong></h2>
+        <p>
+          Kategori Makanan mencakup bahan-bahan esensial dan aditif yang
+          meningkatkan kualitas, rasa, dan stabilitas produk makanan.
+          Bahan-bahan ini memainkan peran krusial dalam berbagai aplikasi
+          pengolahan dan manufaktur makanan.
+        </p>
+        <div class="Product-container">
+          <img src="https://via.placeholder.com/150" alt="Food Image 1" />
+          <img src="https://via.placeholder.com/150" alt="Food Image 2" />
+          <img src="https://via.placeholder.com/150" alt="Food Image 3" />
+          <img src="https://via.placeholder.com/150" alt="Food Image 4" />
+        </div>
+        <a class="explore-button" href="#">Explore more ⟶</a>
+      </div>
+    </section>
+  </body>
 </html>
