@@ -17,4 +17,4 @@ $routes->get('/login', 'AdminController::loginForm');
 $routes->post('/admin/login', 'AdminController::loginProcess');
 $routes->get('/admin/dashboard', 'AdminController::dashboard');
 $routes->get('/logout', 'AdminController::logout');
-$routes->get('/productdetail', 'ProductController::productdetail');
+$routes->get('/productdetail', 'Home::productdetail');
