@@ -64,7 +64,7 @@
                     <li><a href="<?= base_url('/client') ?>">Client</a></li>
                     <li><a href="<?= base_url('/contact') ?>">Contact</a></li>
                     <li><a href="<?= base_url('/news') ?>">News</a></li>
-                    </ul>
+                </ul>
             </div>
         </div>
     </footer>
@@ -100,11 +100,22 @@
         });
     </script>
 
-  
+
     <script>
         ini_set('display_errors', 1);
         ini_set('display_startup_errors', 1);
         error_reporting(E_ALL);
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const nav = document.querySelector('.main-nav');
+
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
+
+    <script>
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.getElementById('menuToggle');
             const nav = document.querySelector('.main-nav');
@@ -120,7 +131,7 @@
         <span class="wa-label">Chat Kami</span>
     </a>
 
-<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
 
 
 </body>
