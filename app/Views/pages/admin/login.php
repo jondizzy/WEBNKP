@@ -93,7 +93,7 @@
 
 <body>
     <div class="login-card text-center">
-        <img src="<?= base_url('images/logo.jpg') ?>" class="logo mb-3" alt="Logo NKP">
+        <img src="<?= base_url('images/logo.png') ?>" class="logo mb-3" alt="Logo NKP">
         <h4>Selamat Datang</h4>
         <p class="mb-4">Silakan login untuk melanjutkan</p>
 
