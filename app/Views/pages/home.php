@@ -2,24 +2,6 @@
 
 <?= $this->section('content') ?>
 <style>
-    /* Hindari container utama mempengaruhi video section */
-    .video-hero {
-        position: relative;
-        width: 100vw !important;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        max-width: 100vw !important;
-    }
-
-    /* Hapus padding dari elemen parent */
-    .video-hero,
-    .video-hero * {
-        box-sizing: border-box;
-    }
-
-    /* Tambahan umum */
     html,
     body {
         margin: 0;
@@ -27,12 +9,36 @@
         overflow-x: hidden;
     }
 
+    .banner-swiper-section {
+        width: 100%;
+        height: 500px;
+        margin-bottom: 4rem;
+        border: none;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .banner-swiper-section .swiper-slide {
+        width: 100%;
+        height: 100%;
+    }
+
+    .banner-swiper-section .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
     .hero-section {
         position: relative;
-        width: 100vw;
+        width: 100%;
         height: 70vh;
-        overflow: hidden;
+        margin-top: 5rem;
         background-color: black;
+        overflow: hidden;
+        border: none;
     }
 
     .hero-section video {
@@ -46,40 +52,116 @@
     }
 
     .video-overlay {
+        position: relative;
         z-index: 1;
-    }
-
-    .banner-image {
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .banner-swiper-section {
-        width: 100%;
-        height: 400px;
-        margin-bottom: 200px;
-    }
-
-    .banner-swiper-section .swiper-slide {
         width: 100%;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        background: rgba(0, 0, 0, 0.4);
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 
-    .banner-img {
+    .hero-content h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .background-video.mobile {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .banner-swiper-section {
+            height: 250px;
+        }
+
+        .hero-section {
+            height: 50vh;
+        }
+
+        .hero-content h1 {
+            font-size: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 0.9rem;
+        }
+
+        .hero-section video {
+            object-fit: contain;
+        }
+
+        .background-video.desktop {
+            display: none;
+        }
+
+        .background-video.mobile {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-content h1 {
+            font-size: 1.2rem;
+        }
+
+        .hero-content p {
+            font-size: 0.8rem;
+        }
+    }
+
+    .banner-swiper-section .swiper-button-next,
+    .banner-swiper-section .swiper-button-prev {
+        color: #007bff;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+
+    .banner-swiper-section .swiper-button-next::after,
+    .banner-swiper-section .swiper-button-prev::after {
+        font-size: 24px;
+    }
+
+    .banner-swiper-section .swiper-button-next:hover,
+    .banner-swiper-section .swiper-button-prev:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .banner-swiper-section .swiper-pagination {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 15px;
+        z-index: 10;
+    }
+
+    .banner-swiper-section .swiper {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-    }
-
-    .banner-swiper-section .swiper-slide img {
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-        object-position: center;
-        display: block;
+        position: relative;
     }
 </style>
-
 
 <?= $this->section('hero') ?>
 <!-- BANNER IMAGE SECTION -->
@@ -87,22 +169,34 @@
     <div class="swiper bannerSwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="<?= base_url('images/banner/banner 1.jpg') ?>" class="banner-img" alt="Banner 1">
+                <img src="<?= base_url('images/banner/banner 4.jpg') ?>" class="banner-img" alt="Banner 1">
             </div>
             <div class="swiper-slide">
-                <img src="<?= base_url('images/banner/banner 2.jpg') ?>" class="banner-img" alt="Banner 2">
+                <img src="<?= base_url('images/banner/banner 5.jpg') ?>" class="banner-img" alt="Banner 2">
             </div>
             <div class="swiper-slide">
                 <img src="<?= base_url('images/banner/banner 3.jpg') ?>" class="banner-img" alt="Banner 3">
             </div>
         </div>
-
-        <!-- Optional navigation -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
     </div>
 </section>
+
+<script>
+    var swiper = new Swiper('.bannerSwiper', {
+        loop: true,
+        pagination: {
+            el: '.bannerSwiper .swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.bannerSwiper .swiper-button-next',
+            prevEl: '.bannerSwiper .swiper-button-prev',
+        },
+    });
+</script>
 
 <!-- VIDEO SECTION -->
 <section class="hero-section">
@@ -116,6 +210,15 @@
         </div>
     </div>
 </section>
+<script>
+    const videoSource = document.getElementById('videoSource');
+    const heroVideo = document.getElementById('heroVideo');
+
+    if (window.innerWidth <= 768) {
+        videoSource.src = "<?= base_url('videos/company-profile-mobile.mp4') ?>";
+        heroVideo.load();
+    }
+</script>
 <?= $this->endSection() ?>
 
 
@@ -143,38 +246,6 @@
             </div>
         </div>
     </section>
-
-    <!-- Style Bagian Diatas Produk -->
-    <style>
-        .highlight-section {
-            color: #fff;
-            padding: 60px 0;
-            text-align: center;
-        }
-
-        .highlight-grid {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 40px;
-        }
-
-        .highlight-item {
-            flex: 1 1 200px;
-            max-width: 200px;
-        }
-
-        .highlight-item h2 {
-            font-size: 48px;
-            margin-bottom: 10px;
-            font-weight: bold;
-        }
-
-        .highlight-item p {
-            font-size: 18px;
-            margin: 0;
-        }
-    </style>
 
 
     <!-- Bagian Produk -->
@@ -270,29 +341,127 @@
             margin-bottom: 0;
         }
 
+        .highlight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .highlight-item {
+            flex: 1 1 200px;
+            max-width: 200px;
+        }
+
+        .highlight-item h2 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .highlight-item p {
+            font-size: 18px;
+            margin: 0;
+        }
+
         .product-slider-section {
             padding-top: 10px;
             margin-top: 0;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            background: transparent;
+            border-top: none;
         }
 
         .product-slider-section h2 {
             color: #fff;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
             text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .product-image-wrapper {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
         }
 
         .product-title {
             color: #000;
-            text-shadow: none;
+            font-size: 16px;
+            margin-top: 10px;
         }
 
-        .product-slider-section {
-            padding-top: 10px;
-            margin-top: 0;
-            background: transparent !important;
-            border-top: none;
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .highlight-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                text-align: center;
+            }
+
+            .highlight-item h2 {
+                font-size: 36px;
+            }
+
+            .highlight-item p {
+                font-size: 16px;
+            }
+
+            .product-slider-section h2 {
+                font-size: 24px;
+            }
+
+            .product-card {
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            .product-image-wrapper {
+                height: 160px;
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .highlight-item h2 {
+                font-size: 28px;
+            }
+
+            .highlight-item p {
+                font-size: 14px;
+            }
+
+            .product-slider-section h2 {
+                font-size: 20px;
+            }
+
+            .product-image-wrapper {
+                height: 140px;
+            }
         }
     </style>
+
+
 </section>
 
 
@@ -558,6 +727,95 @@
         font-size: 0.95rem;
         font-weight: 600;
         text-align: center;
+    }
+
+    @media (max-width: 768px) {
+        .why-container {
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .why-text h2 {
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .why-text p {
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .about-btn {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .why-features {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .feature-card {
+            min-height: 120px;
+            padding: 12px;
+        }
+
+        .feature-card span {
+            font-size: 0.85rem;
+        }
+
+        .feature-card .icon {
+            font-size: 1.4rem;
+            padding: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .why-features {
+            grid-template-columns: 1fr;
+        }
+
+        .feature-card {
+            min-height: 100px;
+        }
+
+        .why-text h2 {
+            font-size: 24px;
+        }
+
+        .why-text p {
+            font-size: 14px;
+        }
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 600px) {
+        .why-text h2 {
+            font-size: 26px;
+        }
+
+        .why-text p {
+            font-size: 15px;
+        }
+
+        .feature-card {
+            padding: 16px;
+            min-height: 120px;
+        }
+
+        .feature-card .icon {
+            font-size: 1.5rem;
+            padding: 10px;
+        }
+
+        .feature-card span {
+            font-size: 0.85rem;
+        }
+
+        .about-btn {
+            padding: 12px 20px;
+            font-size: 15px;
+        }
     }
 </style>
 
