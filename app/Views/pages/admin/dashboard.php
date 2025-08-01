@@ -20,12 +20,12 @@
     <div class="col-md-3 mb-3">
         <div class="card text-white bg-info h-100">
             <div class="card-body d-flex flex-column align-items-center justify-content-center">
-                <i class="fa fa-newspaper-o fa-2x mb-2"></i>
+                <i class="fas fa-newspaper fa-2x mb-2"></i>
                 <h5 class="mb-1">8</h5>
                 <p class="mb-1">News</p>
             </div>
             <div class="card-footer text-center bg-light">
-                <a href="#" class="text-info text-decoration-none">View Details</a>
+                <a href="/admin/AdminNews" class="text-info text-decoration-none">View Details</a>
             </div>
         </div>
     </div>

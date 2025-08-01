@@ -17,8 +17,12 @@
     <!-- HEADER -->
     <header class="site-header">
         <div class="container header-container">
+            <button class="menu-toggle" id="menuToggle">
+                <i class="fas fa-bars"></i>
+            </button>
+
             <div class="logo-wrapper">
-                <img src="<?= base_url('images/logo.jpg') ?>" alt="Logo" class="logo-img" style="height: 100px;">
+                <img src="<?= base_url('images/LOGO.png') ?>" alt="Logo" class="logo-img" style="height: 70px;">
             </div>
             <nav class="main-nav">
                 <a href="<?= base_url('/') ?>">Home</a>
@@ -27,9 +31,6 @@
                 <a href="<?= base_url('/client') ?>">Client</a>
                 <a href="<?= base_url('/contact') ?>">Contact</a>
                 <a href="<?= base_url('/news') ?>">News</a>
-                <a href="https://wa.me/6281321693363" class="wa-icon" target="_blank">
-                    <i class="fab fa-whatsapp"></i>
-                </a>
             </nav>
         </div>
     </header>
@@ -39,6 +40,7 @@
     <main class="main-content container-fluid p-0 m-0">
         <?= $this->renderSection('content') ?>
     </main>
+
 
     <!-- FOOTER -->
     <footer class="site-footer">
@@ -98,7 +100,25 @@
         });
     </script>
 
+  
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const menuToggle = document.getElementById('menuToggle');
+            const nav = document.querySelector('.main-nav');
+
+            menuToggle.addEventListener('click', () => {
+                nav.classList.toggle('active');
+            });
+        });
+    </script>
+
+    <a href="https://wa.me/6281321693363" class="wa-float" target="_blank">
+        <i class="fab fa-whatsapp"></i>
+        <span class="wa-label">Chat Kami</span>
+    </a>
+
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
 
 </body>
 

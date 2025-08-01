@@ -8,7 +8,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <link rel="stylesheet" href="<?= base_url('css/bootstrap.min.css') ?>">
-    <link rel="stylesheet" href="<?= base_url('vendor/font-awesome/css/font-awesome.min.css') ?>">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
     <style>
         body {
             font-family: 'Montserrat', sans-serif;
@@ -64,7 +64,7 @@
                     <a href="#" class="nav-link text-white">Produk</a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link text-white">News</a>
+                    <a href="<?= base_url('admin/AdminNews') ?>" class="nav-link text-white">News</a>
                 </li>
             </ul>
             <div class="mt-auto">

@@ -2,24 +2,6 @@
 
 <?= $this->section('content') ?>
 <style>
-    /* Hindari container utama mempengaruhi video section */
-    .video-hero {
-        position: relative;
-        width: 100vw !important;
-        height: 100vh;
-        margin: 0;
-        padding: 0;
-        overflow: hidden;
-        max-width: 100vw !important;
-    }
-
-    /* Hapus padding dari elemen parent */
-    .video-hero,
-    .video-hero * {
-        box-sizing: border-box;
-    }
-
-    /* Tambahan umum */
     html,
     body {
         margin: 0;
@@ -27,12 +9,36 @@
         overflow-x: hidden;
     }
 
+    .banner-swiper-section {
+        width: 100%;
+        height: 500px;
+        margin-bottom: 4rem;
+        border: none;
+        position: relative;
+        overflow: hidden;
+    }
+
+    .banner-swiper-section .swiper-slide {
+        width: 100%;
+        height: 100%;
+    }
+
+    .banner-swiper-section .swiper-slide img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center;
+        display: block;
+    }
+
     .hero-section {
         position: relative;
-        width: 100vw;
+        width: 100%;
         height: 70vh;
-        overflow: hidden;
+        margin-top: 5rem;
         background-color: black;
+        overflow: hidden;
+        border: none;
     }
 
     .hero-section video {
@@ -46,64 +52,151 @@
     }
 
     .video-overlay {
+        position: relative;
         z-index: 1;
-    }
-
-    .banner-image {
-        width: 100%;
-        overflow: hidden;
-    }
-
-    .banner-swiper-section {
-        width: 100%;
-        height: 400px;
-        margin-bottom: 200px;
-    }
-
-    .banner-swiper-section .swiper-slide {
         width: 100%;
         height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        text-align: center;
+        padding: 1rem;
+        background: rgba(0, 0, 0, 0.4);
+        padding-top: 2rem;
+        padding-bottom: 2rem;
     }
 
-    .banner-img {
+    .hero-content h1 {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 0.5rem;
+    }
+
+    .hero-content p {
+        font-size: 1rem;
+    }
+
+    .background-video.mobile {
+        display: none;
+    }
+
+    @media (max-width: 768px) {
+        .banner-swiper-section {
+            height: 250px;
+        }
+
+        .hero-section {
+            height: 50vh;
+        }
+
+        .hero-content h1 {
+            font-size: 1.5rem;
+        }
+
+        .hero-content p {
+            font-size: 0.9rem;
+        }
+
+        .hero-section video {
+            object-fit: contain;
+        }
+
+        .background-video.desktop {
+            display: none;
+        }
+
+        .background-video.mobile {
+            display: block;
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 0;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .hero-content h1 {
+            font-size: 1.2rem;
+        }
+
+        .hero-content p {
+            font-size: 0.8rem;
+        }
+    }
+
+    .banner-swiper-section .swiper-button-next,
+    .banner-swiper-section .swiper-button-prev {
+        color: #007bff;
+        width: 45px;
+        height: 45px;
+        border-radius: 50%;
+        transition: background-color 0.3s ease;
+    }
+
+    .banner-swiper-section .swiper-button-next::after,
+    .banner-swiper-section .swiper-button-prev::after {
+        font-size: 24px;
+    }
+
+    .banner-swiper-section .swiper-button-next:hover,
+    .banner-swiper-section .swiper-button-prev:hover {
+        background-color: #007bff;
+        color: white;
+    }
+
+    .banner-swiper-section .swiper-pagination {
+        position: absolute;
+        left: 50%;
+        transform: translateX(-50%);
+        bottom: 15px;
+        z-index: 10;
+    }
+
+    .banner-swiper-section .swiper {
         width: 100%;
         height: 100%;
-        object-fit: cover;
-    }
-
-    .banner-swiper-section .swiper-slide img {
-        width: 100%;
-        height: 500px;
-        object-fit: cover;
-        object-position: center;
-        display: block;
+        position: relative;
     }
 </style>
 
-
-<!-- BANNER IMAGE SECTION -->
 <?= $this->section('hero') ?>
 <!-- BANNER IMAGE SECTION -->
 <section class="banner-swiper-section">
     <div class="swiper bannerSwiper">
         <div class="swiper-wrapper">
             <div class="swiper-slide">
-                <img src="<?= base_url('images/banner/banner 1.jpg') ?>" class="banner-img" alt="Banner 1">
+                <img src="<?= base_url('images/banner/banner 4.jpg') ?>" class="banner-img" alt="Banner 1">
             </div>
             <div class="swiper-slide">
-                <img src="<?= base_url('images/banner/banner 2.jpg') ?>" class="banner-img" alt="Banner 2">
+                <img src="<?= base_url('images/banner/banner 5.jpg') ?>" class="banner-img" alt="Banner 2">
             </div>
             <div class="swiper-slide">
                 <img src="<?= base_url('images/banner/banner 3.jpg') ?>" class="banner-img" alt="Banner 3">
             </div>
         </div>
-
-        <!-- Optional navigation -->
         <div class="swiper-button-next"></div>
         <div class="swiper-button-prev"></div>
         <div class="swiper-pagination"></div>
     </div>
 </section>
+
+<script>
+    var swiper = new Swiper('.bannerSwiper', {
+        loop: true,
+        pagination: {
+            el: '.bannerSwiper .swiper-pagination',
+            clickable: true,
+        },
+        navigation: {
+            nextEl: '.bannerSwiper .swiper-button-next',
+            prevEl: '.bannerSwiper .swiper-button-prev',
+        },
+    });
+</script>
 
 <!-- VIDEO SECTION -->
 <section class="hero-section">
@@ -117,90 +210,263 @@
         </div>
     </div>
 </section>
+<script>
+    const videoSource = document.getElementById('videoSource');
+    const heroVideo = document.getElementById('heroVideo');
+
+    if (window.innerWidth <= 768) {
+        videoSource.src = "<?= base_url('videos/company-profile-mobile.mp4') ?>";
+        heroVideo.load();
+    }
+</script>
 <?= $this->endSection() ?>
 
 
-
-<!-- Bagian Produk -->
-<section class="product-slider-section">
-    <h2>Produk Kami</h2>
-    <div class="swiper mySwiper">
-        <div class="swiper-wrapper">
-
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <a href="<?= base_url('/product/detail/1') ?>">
-                        <div class="product-image-wrapper">
-                            <img src="<?= base_url('images/Product1.jpg') ?>" alt="Produk 1" class="product-img">
-                        </div>
-                        <h3 class="product-title">Nama Produk 1</h3>
-                    </a>
+<!-- Diatas Bagian Produk -->
+<section class="background-wrapper">
+    <section class="highlight-section">
+        <div class="container">
+            <div class="highlight-grid">
+                <div class="highlight-item">
+                    <h2>73</h2>
+                    <p>Tahun Berdiri</p>
+                </div>
+                <div class="highlight-item">
+                    <h2>50+</h2>
+                    <p>Produk</p>
+                </div>
+                <div class="highlight-item">
+                    <h2>3</h2>
+                    <p>Segmen Bisnis</p>
+                </div>
+                <div class="highlight-item">
+                    <h2>100+</h2>
+                    <p>Pemasok</p>
                 </div>
             </div>
-
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <a href="<?= base_url('/product/detail/2') ?>">
-                        <div class="product-image-wrapper">
-                            <img src="<?= base_url('images/Product2.jpg') ?>" alt="Produk 2" class="product-img">
-                        </div>
-                        <h3 class="product-title">Nama Produk 2</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <a href="<?= base_url('/product/detail/3') ?>">
-                        <div class="product-image-wrapper">
-                            <img src="<?= base_url('images/Product3.png') ?>" alt="Produk 3" class="product-img">
-                        </div>
-                        <h3 class="product-title">Nama Produk 3</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <a href="<?= base_url('/product/detail/3') ?>">
-                        <div class="product-image-wrapper">
-                            <img src="<?= base_url('images/Product4.jpg') ?>" alt="Produk 3" class="product-img">
-                        </div>
-                        <h3 class="product-title">Nama Produk 4</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <a href="<?= base_url('/product/detail/3') ?>">
-                        <div class="product-image-wrapper">
-                            <img src="<?= base_url('images/Product5.jpg') ?>" alt="Produk 3" class="product-img">
-                        </div>
-                        <h3 class="product-title">Nama Produk 5</h3>
-                    </a>
-                </div>
-            </div>
-
-            <div class="swiper-slide">
-                <div class="product-card">
-                    <a href="<?= base_url('/product/detail/3') ?>">
-                        <div class="product-image-wrapper">
-                            <img src="<?= base_url('images/Product6.jpg') ?>" alt="Produk 3" class="product-img">
-                        </div>
-                        <h3 class="product-title">Nama Produk 6</h3>
-                    </a>
-                </div>
-            </div>
-
         </div>
+    </section>
 
-        <!-- Navigasi Panah -->
-        <div class="swiper-button-next"></div>
-        <div class="swiper-button-prev"></div>
-    </div>
+
+    <!-- Bagian Produk -->
+    <section class="product-slider-section">
+        <h2>Produk Kami</h2>
+        <div class="swiper mySwiper">
+            <div class="swiper-wrapper">
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <a href="<?= base_url('/product/detail/1') ?>">
+                            <div class="product-image-wrapper">
+                                <img src="<?= base_url('images/Product1.jpg') ?>" alt="Produk 1" class="product-img">
+                            </div>
+                            <h3 class="product-title">Nama Produk 1</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <a href="<?= base_url('/product/detail/2') ?>">
+                            <div class="product-image-wrapper">
+                                <img src="<?= base_url('images/Product2.jpg') ?>" alt="Produk 2" class="product-img">
+                            </div>
+                            <h3 class="product-title">Nama Produk 2</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <a href="<?= base_url('/product/detail/3') ?>">
+                            <div class="product-image-wrapper">
+                                <img src="<?= base_url('images/Product3.png') ?>" alt="Produk 3" class="product-img">
+                            </div>
+                            <h3 class="product-title">Nama Produk 3</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <a href="<?= base_url('/product/detail/3') ?>">
+                            <div class="product-image-wrapper">
+                                <img src="<?= base_url('images/Product4.jpg') ?>" alt="Produk 3" class="product-img">
+                            </div>
+                            <h3 class="product-title">Nama Produk 4</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <a href="<?= base_url('/product/detail/3') ?>">
+                            <div class="product-image-wrapper">
+                                <img src="<?= base_url('images/Product5.jpg') ?>" alt="Produk 3" class="product-img">
+                            </div>
+                            <h3 class="product-title">Nama Produk 5</h3>
+                        </a>
+                    </div>
+                </div>
+
+                <div class="swiper-slide">
+                    <div class="product-card">
+                        <a href="<?= base_url('/product/detail/3') ?>">
+                            <div class="product-image-wrapper">
+                                <img src="<?= base_url('images/Product6.jpg') ?>" alt="Produk 3" class="product-img">
+                            </div>
+                            <h3 class="product-title">Nama Produk 6</h3>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Navigasi Panah -->
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+        </div>
+    </section>
+
+    <style>
+        .background-wrapper {
+            background: linear-gradient(rgba(0, 34, 85, 0.8), rgba(0, 34, 85, 0.8)),
+                url('<?= base_url('images/tetes.jpg') ?>') center/cover no-repeat;
+            color: #fff;
+        }
+
+        .highlight-section {
+            padding: 60px 0 20px 0;
+            text-align: center;
+            margin-bottom: 0;
+        }
+
+        .highlight-grid {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 40px;
+        }
+
+        .highlight-item {
+            flex: 1 1 200px;
+            max-width: 200px;
+        }
+
+        .highlight-item h2 {
+            font-size: 48px;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .highlight-item p {
+            font-size: 18px;
+            margin: 0;
+        }
+
+        .product-slider-section {
+            padding-top: 10px;
+            margin-top: 0;
+            background: transparent;
+            border-top: none;
+        }
+
+        .product-slider-section h2 {
+            color: #fff;
+            font-size: 32px;
+            text-align: center;
+            margin-bottom: 20px;
+            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+        }
+
+        .product-card {
+            background: #fff;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+            text-align: center;
+            padding: 10px;
+        }
+
+        .product-image-wrapper {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+        }
+
+        .product-img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .product-title {
+            color: #000;
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* RESPONSIVE */
+        @media (max-width: 768px) {
+            .highlight-grid {
+                display: grid;
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+                text-align: center;
+            }
+
+            .highlight-item h2 {
+                font-size: 36px;
+            }
+
+            .highlight-item p {
+                font-size: 16px;
+            }
+
+            .product-slider-section h2 {
+                font-size: 24px;
+            }
+
+            .product-card {
+                width: 90%;
+                margin: 0 auto;
+            }
+
+            .product-image-wrapper {
+                height: 160px;
+            }
+
+            .swiper-button-next,
+            .swiper-button-prev {
+                display: none;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .highlight-item h2 {
+                font-size: 28px;
+            }
+
+            .highlight-item p {
+                font-size: 14px;
+            }
+
+            .product-slider-section h2 {
+                font-size: 20px;
+            }
+
+            .product-image-wrapper {
+                height: 140px;
+            }
+        }
+    </style>
+
+
 </section>
 
+
+
+<!-- Bagian Achievement -->
 <section class="achievement-section">
     <div class="achievement-container">
         <div class="achievement-text">
@@ -217,6 +483,7 @@
     </div>
 </section>
 
+<!-- Style Achievement -->
 <style>
     .achievement-section {
         padding: 60px 20px;
@@ -301,7 +568,7 @@
     }
 </style>
 
-
+<!-- Bagian Mengapa Memilih Kami -->
 <section class="why-choose-us">
     <div class="why-container">
         <div class="why-text">
@@ -339,6 +606,7 @@
     </div>
 </section>
 
+<!-- Style Mengapa Memilih Kami -->
 <style>
     .why-choose-us {
         background: #ffffff;
@@ -460,9 +728,99 @@
         font-weight: 600;
         text-align: center;
     }
+
+    @media (max-width: 768px) {
+        .why-container {
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .why-text h2 {
+            font-size: 28px;
+            text-align: center;
+        }
+
+        .why-text p {
+            font-size: 15px;
+            text-align: center;
+        }
+
+        .about-btn {
+            display: block;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .why-features {
+            grid-template-columns: repeat(2, 1fr);
+        }
+
+        .feature-card {
+            min-height: 120px;
+            padding: 12px;
+        }
+
+        .feature-card span {
+            font-size: 0.85rem;
+        }
+
+        .feature-card .icon {
+            font-size: 1.4rem;
+            padding: 10px;
+        }
+    }
+
+    @media (max-width: 480px) {
+        .why-features {
+            grid-template-columns: 1fr;
+        }
+
+        .feature-card {
+            min-height: 100px;
+        }
+
+        .why-text h2 {
+            font-size: 24px;
+        }
+
+        .why-text p {
+            font-size: 14px;
+        }
+    }
+
+    /* Mobile Responsiveness */
+    @media (max-width: 600px) {
+        .why-text h2 {
+            font-size: 26px;
+        }
+
+        .why-text p {
+            font-size: 15px;
+        }
+
+        .feature-card {
+            padding: 16px;
+            min-height: 120px;
+        }
+
+        .feature-card .icon {
+            font-size: 1.5rem;
+            padding: 10px;
+        }
+
+        .feature-card span {
+            font-size: 0.85rem;
+        }
+
+        .about-btn {
+            padding: 12px 20px;
+            font-size: 15px;
+        }
+    }
 </style>
 
 
+<!-- Bagian News -->
 <section id="news" class="news-section">
     <div class="container">
         <div class="news-header">
@@ -470,96 +828,47 @@
             <a href="<?= base_url('/news') ?>" class="see-all">See All →</a>
         </div>
 
-        <?php
-        $news = [
-            [
-                'title' => 'Pabrik Baru Dibuka di Karawang',
-                'summary' => 'Kami resmi membuka fasilitas baru di Karawang untuk memperluas distribusi nasional.',
-                'image' => '/images/news/news 1.webp',
-                'slug' => 'pabrik-baru-karawang',
-                'category' => 'Press Release',
-                'published_at' => '2025-07-26',
-            ],
-            [
-                'title' => 'Kemitraan Strategis Baru',
-                'summary' => 'Kami menjalin kemitraan dengan perusahaan internasional untuk memperkuat rantai pasokan.',
-                'image' => '/images/news/news 2.jpg',
-                'slug' => 'kemitraan-strategis',
-                'category' => 'Blog',
-                'published_at' => '2025-07-25',
-            ],
-            [
-                'title' => 'Sertifikasi ISO 9001:2024',
-                'summary' => 'Perusahaan kami meraih sertifikasi ISO terbaru sebagai bukti kualitas dan standar tinggi.',
-                'image' => '/images/news/news 3.jpg',
-                'slug' => 'sertifikasi-iso-9001',
-                'category' => 'Blog',
-                'published_at' => '2025-07-24',
-            ],
-            [
-                'title' => 'Pelatihan Karyawan Nasional',
-                'summary' => 'Kami mengadakan pelatihan karyawan secara nasional untuk meningkatkan kompetensi tim.',
-                'image' => '/images/news/news 4.jpg',
-                'slug' => 'pelatihan-karyawan-nasional',
-                'category' => 'Training',
-                'published_at' => '2025-07-23',
-            ],
-            [
-                'title' => 'Produk Baru untuk Industri Makanan',
-                'summary' => 'Kami meluncurkan produk kimia baru yang aman dan efisien untuk industri makanan dan minuman.',
-                'image' => '/images/news/news 5.jpg',
-                'slug' => 'produk-baru-industri-makanan',
-                'category' => 'Product Launch',
-                'published_at' => '2025-07-22',
-            ],
-            [
-                'title' => 'Ekspansi ke Pasar Asia Tenggara',
-                'summary' => 'Kami memperluas distribusi kami ke beberapa negara Asia Tenggara untuk memperluas pasar ekspor.',
-                'image' => '/images/news/news 6.jpeg',
-                'slug' => 'ekspansi-asia-tenggara',
-                'category' => 'Business',
-                'published_at' => '2025-07-21',
-            ],
-        ];
-        ?>
-
-        <div class="news-wrapper">
-            <!-- Left Big News -->
-            <?php $main = $news[0]; ?>
-            <div class="news-main">
-                <a href="<?= base_url('news/' . $main['slug']) ?>" class="news-link">
-                    <img src="<?= base_url($main['image']) ?>" alt="<?= esc($main['title']) ?>" class="news-main-img">
-                    <div class="news-main-content">
-                        <p class="news-category"><?= esc($main['category']) ?></p>
-                        <h3 class="news-title"><?= esc($main['title']) ?></h3>
-                        <p class="news-summary"><?= esc($main['summary']) ?></p>
-                        <p class="news-date"><?= date('d M Y', strtotime($main['published_at'])) ?></p>
-                    </div>
-                </a>
-            </div>
-
-            <!-- Right List News -->
-            <div class="news-list">
-                <?php foreach (array_slice($news, 1) as $item): ?>
-                    <a href="<?= base_url('news/' . $item['slug']) ?>" class="news-item-link">
-                        <div class="news-item">
-                            <img src="<?= base_url($item['image']) ?>" alt="<?= esc($item['title']) ?>" class="news-thumb">
-                            <div class="news-item-body">
-                                <p class="news-category"><?= esc($item['category']) ?></p>
-                                <h4 class="news-title"><?= esc($item['title']) ?></h4>
-                                <p class="news-summary"><?= esc($item['summary']) ?></p>
-                                <p class="news-date"><?= date('d M Y', strtotime($item['published_at'])) ?></p>
-                            </div>
+        <?php if (!empty($news) && count($news) > 0): ?>
+            <div class="news-wrapper">
+                <!-- Left Big News -->
+                <?php $main = $news[0]; ?>
+                <div class="news-main">
+                    <a href="<?= base_url('/newsdetail/' . $main['id_news']) ?>" class="news-item-link">
+                        <img src="<?= base_url('images/news/' . $main['image_url']) ?>" alt="<?= esc($main['title']) ?>" class="news-main-img">
+                        <div class="news-main-content">
+                            <p class="news-category"><?= esc($main['category']) ?></p>
+                            <h3 class="news-title"><?= esc($main['title']) ?></h3>
+                            <p class="news-summary"><?= word_limiter($main['description'], 20) ?></p>
+                            <p class="news-date"><?= date('d M Y', strtotime($main['date_posted'])) ?></p>
                         </div>
                     </a>
-                <?php endforeach; ?>
+                </div>
+
+                <!-- Right List News -->
+                <div class="news-list">
+                    <?php foreach (array_slice($news, 1) as $item): ?>
+                        <a href="<?= base_url('/newsdetail/' . $item['id_news']) ?>" class="news-item-link">
+                            <div class="news-item">
+                                <img src="<?= base_url('images/news/' . $item['image_url']) ?>" alt="<?= esc($item['title']) ?>" class="news-thumb">
+                                <div class="news-item-body">
+                                    <p class="news-category"><?= esc($item['category']) ?></p>
+                                    <h4 class="news-title"><?= esc($item['title']) ?></h4>
+                                    <p class="news-summary"><?= word_limiter($item['description'], 20) ?></p>
+                                    <p class="news-date"><?= date('d M Y', strtotime($item['date_posted'])) ?></p>
+                                </div>
+                            </div>
+                        </a>
+                    <?php endforeach; ?>
+                </div>
             </div>
-        </div>
+        <?php else: ?>
+            <p class="text-muted">No news available at the moment.</p>
+        <?php endif; ?>
     </div>
 </section>
 
 
-
+<!-- Style News -->
 <style>
     .news-section {
         padding: 60px 20px;
@@ -754,44 +1063,6 @@
         });
     });
 </script>
-=======
-<section class="achievement">
-<div class="flex-container">
-    <div class="columntext">
-        <h1 style="color:blue; font-size: 40px;"> Achievement </h1>
-        <p style="font-size: 25px">Pencapaian PT Nusamas Kimia Persada</p>
-        <p>Sebagai Supplier, Importir, Distributor Bahan Kimia terkemuka di Indonesia, kami sudah mendapat banyak pencapaian selama ini!</p>
-    </div>
-    <div class="columntext">
-        <div class="columntext">
-            <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="400" height="350" class="center">
-        </div>
-        <!-- <div class="flex-container">
-            <div class="columntext">
-                <a href="<?= base_url('/product/detail/1') ?>">
-                    <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="200" height="150">
-                </a>
-            </div> 
-            <div class="columntext">
-                <a href="<?= base_url('/product/detail/1') ?>">
-                    <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="200" height="150">
-                </a>
-            </div> 
-        </div>
-        <div class="flex-container">
-            <div class="columntext">
-                <a href="<?= base_url('/product/detail/1') ?>">
-                    <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="200" height="150">
-                </a>
-            </div> 
-            <div class="columntext">
-                <a href="<?= base_url('/product/detail/1') ?>">
-                    <img src="<?= base_url('images/Product1.png') ?>" alt="Produk 1" width="200" height="150">
-                </a>
-            </div> 
-        </div> -->
-    </div>
-</div>
-</section>
+
 
 <?= $this->endSection() ?>

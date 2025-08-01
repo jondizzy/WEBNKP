@@ -2,11 +2,22 @@
 
 namespace App\Controllers;
 
+use App\Models\NewsModel;
+
 class Home extends BaseController
 {
     public function index()
     {
-        return view('pages/home', ['title' => 'Beranda']);
+        helper('text');
+
+        $newsModel = new NewsModel();
+
+        $data = [
+            'title' => 'Beranda',
+            'news'  => $newsModel->orderBy('date_posted', 'DESC')->findAll(6),
+        ];
+
+        return view('pages/home', $data);
     }
 
     public function about()
@@ -23,14 +34,12 @@ class Home extends BaseController
     {
         return view('pages/client', ['title' => 'Client']);
     }
-    public function news()
-    {
-        return view('pages/news', ['title' => 'News']);
-    }
+
     public function contact()
     {
         return view('pages/contact', ['title' => 'Contact']);
     }
+
     public function newsdetail()
     {
         return view('pages/newsdetail', ['title' => 'News Detail']);
