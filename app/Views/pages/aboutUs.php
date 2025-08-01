@@ -62,14 +62,17 @@
                     </div>
                    </div>
                 <div class="text-aligner">
-                    <div class="header-par-container">
+                    <div class="header-container">
                         <div id="content" class="fade transition">
-                            <div id="content-text">
-                                <!--text per year here-->
+                            <div class="header-container">
+                                <div id="content-text">
+                                    <!--text per year here-->
+                                </div>
+                                <div id="content-image">
+                                    <!--image per year here-->
+                                </div>
                             </div>
-                            <div id="content-image">
-                                <!--image per year here-->
-                            </div>
+                            
                         </div>
                     </div>
                 </div>             
@@ -178,18 +181,6 @@
             font-size: 44px;
         }
 
-        /*timeline*/
-        /* .timeline {
-            display: flex;
-            align-items: center;
-            margin-bottom: 50px;
-        } */
-
-        /* .event{
-            text-align: center;
-            position: relative;
-        } */
-
         .event-image-container {
             max-width: 1400px;
             width: 100%;
@@ -256,12 +247,30 @@
             opacity: 0;
         }
 
-        .header-par-container {
+        .header-container {
             display: flex;
             align-items: flex-start;
-            gap: 20px;
+            gap: 35px;
             margin-left: 20px;
             margin-top: 56px;
+        }
+
+        #content-text::-webkit-scrollbar {
+            width: 10px;
+        }
+
+        #content-text::-webkit-scrollbar-track {
+            background: #E2E2E2;
+        }
+
+        #content-text::-webkit-scrollbar-thumb {
+            background-color: #080761;
+            border-radius: 5px;
+            border: 2px solid #E2E2E2;
+        }
+
+        #content-text::-webkit-scrollbar-thumb:hover {
+            background-color: #050447;
         }
 
         #content-text {
@@ -276,6 +285,7 @@
             max-width: 200px;
             height: auto;
         }
+
 
         .header-section p {
             color: #000000;
@@ -385,18 +395,6 @@
             text-align: justify;
         }
 
-        /* .sertifikat:nth-child(odd) {
-            flex-direction: row-reverse;
-        } */
-
-        /* .sertifikat img {
-            width: 200px;
-            height: auto;
-            object-fit: cover;
-            border-radius: 5px;
-            
-        } */
-
         /*responsive*/
         @media (max-width: 768px) {
             .vmm-container {
@@ -416,8 +414,10 @@
     <!-- JavaScript -->    
     <script>
 
-        /*initialize tooltip from bootstrap*/
+        
         document.addEventListener('DOMContentLoaded', function () {
+
+            /*initialize tooltip from bootstrap*/
             const tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
             tooltipTriggerList.forEach(function (el) {
                 new bootstrap.Tooltip(el);
@@ -426,55 +426,58 @@
             /*change content per year clicked*/
             const content = {
                 "1": {
-                    text: "Prethink call in the air support... etc.",
+                    text: "I don't know I think we've done absolutely everything you can do to prepare for the day. I've updated our contacts, I have gotten quotes from suppliers. I have sent out an E-vite for our big grand opening pancake luncheon. Six yeses, one maybe, only eleven noes. Um, and 788 not yet replieds. But of that group, 782 have viewed it. When I was in the sixth grade, I was a finalist in our school Spelling Bee. It was me against Raj Patel. And I misspelled, in front of the entire school, the word 'failure'. I always thought Michael got a bad rap. He's a good guy. And he's super funny. Yeah, maybe I should tell him before he goes. He's all the way over there. That's- Well, I'm looking forward to meeting Terri. I lied to myself too. I'm not a millionaire. I thought I would be by the time I was 30, but I wasn't even close. And then I thought maybe by the time I was 40, but by 40, I had less money than when I was 30. Maybe by my 50s, I don't know. I wanted to pay for your education. I really did. It was my dream. Some people have evil drems, some people have selfish dreams or wet dreams. My dream was in the right place. [Jim rips off his clothes] Wha-? [Stanley laughs] Damn it, Jim! It wasn't me. Uh-huh. [laughs] I can't believe-ee. It's a miracle. She can talk! This is the first Christmas party I am throwing as head of the party planning committee. The theme is Nights in Morocco. This isn't your grandmothers Christmas party. Unless of course she's from Morocco, in which case it's very accurate. Hey, they're playing our song. You, you don't know. Oh. I was reading the mattress tag and I fell asleep. There's this woman I met a few weeks ago. Her name is Donna, the manager of Sid &amp; Dexter's and, right now, we're in the midst of a passionate love affair. Um, no. But she is coming by today. Maybe to buy some printers, so...",
                     image: "/images/client1.jpeg"
                 },
                 "2": {
-                    text: "But what's the real problem we're trying to solve here?...",
+                    text: "I got Stanley tickets to see Lewis Black for his birthday. ...Might not have been the best idea. Stop it right now. Ryan is a temporary worker, makes no money. Wally is a whole doctor. So handsome. Actually, the distractions are good. I mean, I don't think I'm going to make it until midnight if I'm just sitting here thinking about it. Yes. [laughs hysterically] I got her!",
                     image: "/images/client2.jpg"
                 },
                 "3": {
-                    text: "Let's pressure test this gain traction...",
+                    text: "I don't know. It's like a little envelope-- there you go. Wow! My best friend was my boss, Andy. We dated for a while, but since then, he rejected me, and we’re not really friends. Ok, good, thank you. That wasn't so hard now was it? Nice Brought you guys some coffees. Stanley, I know you have adult onset diabetes. So I put Splenda in yours. Let's see. How many did I put in there? [starts singing to the tune of Feist's 1234] One, Two, Three, Four Splenda's in your coffee, Stanley. None in yours, Julia, cause I don't know how you take it. But if you'd rather... Mmm-hmm. So what if they're not talking much, then does it makes sense to kind of lead the conversation? You know, just 'till it gets to a point where they are asking questions? [car stops] So where's the sales office? And seriously, it's totally not a big deal, ok? And when I found out you were engaged, I mean.",
                     image: "/images/client3.jpg"
                 },
                 "4": {
-                    text: "Value-added lean into that problem...",
+                    text: "This year I decided to really get into the spirit of Halloween. Dammit, Phyllis! My friend at the Scranton Blade is totally plugged into these matters. My maid died. [speaks in a Yoda voice] Much advice you seek. [regular voice] Do you know who that is? But you said that you went out with her this weekend. Enjoy the snow losers.",
                     image: "/images/client4.jpg"
                 },
                 "5": {
-                    text: "Prethink call in the air support...",
+                    text: "[all in conference room] Guys! I want you to help us work on some banter. So, you think Michael's going after the whale, huh? [at dump] It's freezing out here.",
                     image: "/images/Product1.jpg"
                 },
                 "6": {
-                    text: "This proposal is a win-win situation...",
+                    text: "No, I'm no doctor, but it seems to me that we all have an obligation to the public health to track down anyone who gives us a disease, inform them of it, and take overwhelming revenge on that person. Again, I'm no doctor. I'm just a normal guy who enjoys revenge. I have very little patience for stupidity. Island living. You know? Sit down, Dwight. Is there a key for Jane Doe? Thank you. Ok, there's a penny. What's that from? Somebody did something bad to Michael's carpet. Maybe that's all we need to know. God, stay away. Oh, I always get in trouble around bloggers. Im trying to be a good girl for once. Am I angry that Gabe stole my girlfriend over the summer? No. I've been through anger-management, OK? So right now, I am sitting on a nice beach at Cape Cod, gazing out across the whitecaps. Oh, look, it's a humpback whale. How pretty. He's eating Gabe. [In bathroom, answers phone] Dwight Schrute. I thought your name was Pudge? That's psychotic. Do guys actually do that? [marks Scranton with a red pushpin on a map of Pennsylvania and exhales] This is what we know. [Andy and Dwight sumo wrestle] Gaaaaa.... Oh, no. Michael, please. Michael, please. Youre gonna let me do the talking, we agreed on that. Must be a tough time to be a family farm. Oh, Im sorry Pam. Apparently a big client for this company, needs to know the story of how paper gets made. [singing] Goodbye Toby, it's been nice. Hope you find your paradise... My condolences. You know what. I had a great time at prom. And no one said 'Yes' to that either. [excited] That's really irresponsible of Erin. She's a terrible babysitter. [driving up to pick up Michael, Andy, and kid off the road] Get in quick. I want to clamp Michael's face in a George Foreman grill. All I'm saying is that it's a first dates, so just keep a respectful distance. Yeah, well. Yeah, OK. Well, then thank you. Thanks to both of you. I lost a penny out of my loafers, Oscar. [addressing camera after opening envelope on his desk] Thank you. We have to. Hello Mr. Halpert. Im calling from the identity theft department at Capital One. Weve detected some unusual activity on your credit card. Its a thinking technique. All the top executives do it. It keeps the brain moving, and a spinning brain is a working brain. I didnt feel much when I held Astrid, but I got a good feeling from Holly. They say that everyone outgrows their friends at some point in their lives. Well I just outgrew them all in the span of three hours. Good morning. [Pam sees breakfast sitting on her desk] Yeah I'm sorry, I looked away for a second and Creed snatched your hash browns. So you're asking me to defend your honor against Kelly? The thought of popping one of your beets into my mouth makes me want to vomit. [sobbing] Jim is gone. He's gone. I miss him so much. Ooooh I cry myself to sleep, Jim! [serious] False. I do not miss him. It's been a little tense. People are suspicious of me. And my best friend in the office won't even talk to me. Turns out being the morality police does not make you popular. I should know because in middle school I was the hall monitor and the kids used to stuff egg salad in my locker. I was just hoping middle school was over. Michael, you haven't even heard-- You know what, I am on a deadline here, and just... OK. Thanks, thanks for your help. I'll work it out. Thank you Dwight. That was a waste of time. There's a basic principle in real estate, that you should never be the best-looking person in the development. It's just sorta common sense, because if you are, then you've no place to go but down. Yeah! That's a lot of reasons! [suspicious] [singing] My shadow's the only one that walks beside me. My shallow heart's the only thing that's beating...",
                     image: "/images/Product2.jpg"
                 }
                 };
 
                 document.querySelectorAll('.year-1, .year-2, .year-3, .year-4, .year-5, .year-6').forEach(btn => {
-                btn.addEventListener('click', () => {
-                    const year = btn.getAttribute('data-year');
-                    const contentEl = document.getElementById('content');
-                    const textEl = document.getElementById('content-text');
-                    const imgEl = document.getElementById('content-image');
+                    btn.addEventListener('click', () => {
+                        const year = btn.getAttribute('data-year');
+                        const contentEl = document.getElementById('content');
+                        const textEl = document.getElementById('content-text');
+                        const imgEl = document.getElementById('content-image');
 
-                    if (!content[year]) {
-                    console.warn(`No content found for year ${year}`);
-                    return;
-                    }
+                        if (!content[year]) {
+                        console.warn(`No content found for year ${year}`);
+                        return;
+                        }
 
-                    // Fade out
-                    contentEl.classList.add('fade-out');
+                        // Fade out
+                        contentEl.classList.add('fade-out');
 
-                    setTimeout(() => {
-                    // Insert content
-                    textEl.innerHTML = `<p>${content[year].text}</p>`;
-                    imgEl.innerHTML = `<img src="${content[year].image}" alt="Image for year ${year}" style="max-width:100%; height:auto;">`;
+                        setTimeout(() => {
+                        // Insert content
+                        textEl.innerHTML = `<p>${content[year].text}</p>`;
+                        imgEl.innerHTML = `<img src="${content[year].image}" alt="Image for year ${year}" style="
+                        max-width:300px; 
+                        height:auto;
+                        ">`;
 
-                    // Fade in
-                    contentEl.classList.remove('fade-out');
-                    }, 500);
-                });
+                        // Fade in
+                        contentEl.classList.remove('fade-out');
+                        }, 500);
+                    });
                 });
 
 
