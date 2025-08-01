@@ -21,7 +21,7 @@
             </button>
 
             <div class="logo-wrapper">
-                <img src="<?= base_url('images/LOGO.png') ?>" alt="Logo" class="logo-img" style="height: 100px;">
+                <img src="<?= base_url('images/LOGO.png') ?>" alt="Logo" class="logo-img" style="height: 70px;">
             </div>
             <nav class="main-nav">
                 <a href="<?= base_url('/') ?>">Home</a>
