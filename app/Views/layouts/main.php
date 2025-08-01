@@ -102,6 +102,9 @@
 
   
     <script>
+        ini_set('display_errors', 1);
+        ini_set('display_startup_errors', 1);
+        error_reporting(E_ALL);
         document.addEventListener('DOMContentLoaded', function() {
             const menuToggle = document.getElementById('menuToggle');
             const nav = document.querySelector('.main-nav');
