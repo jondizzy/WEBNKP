@@ -23,7 +23,12 @@
     <div class="form-group">
         <label>Category</label>
         <select name="category_id" class="form-control" required>
-            <option value="1">Food</option>
+            <option value="">-- Pilih Kategori --</option>
+            <?php foreach ($categories as $cat): ?>
+                <option value="<?= esc($cat['category_id']) ?>">
+                    <?= esc($cat['name']) ?>
+                </option>
+            <?php endforeach; ?>
         </select>
     </div>
     <div class="form-group">

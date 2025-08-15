@@ -49,11 +49,12 @@ class ProductController extends BaseController
     }
     public function add_product_form()
     {
-        if (!session()->get('logged_in')) {
-            return redirect()->to('/login');
-        }
+        $categoryModel = new \App\Models\CategoryModel();
+        $categories = $categoryModel->findAll();
 
-        return view('pages/admin/add_product');
+        return view('pages/admin/add_product', [
+            'categories' => $categories
+        ]);
     }
 
 
