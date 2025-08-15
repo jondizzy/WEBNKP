@@ -5,6 +5,7 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+//Home
 $routes->get('/', 'Home::index');
 $routes->get('/aboutUs', 'Home::about');
 $routes->get('/ProductCategory', 'Home::ProductCategory');
@@ -13,13 +14,20 @@ $routes->get('/news', 'NewsController::index');
 $routes->get('newsdetail/(:num)', 'NewsController::detail/$1');
 $routes->get('/contact', 'Home::Contact');
 $routes->get('/client/detail/(:segment)', 'Home::clientDetail/$1');
+
+//Admin
 $routes->get('/login', 'AdminController::loginForm');
 $routes->post('/admin/login', 'AdminController::loginProcess');
 $routes->get('/admin/dashboard', 'AdminController::dashboard');
 
+//Produk
+$routes->get('/admin/AdminProduct', 'ProductController::ProductView');
 $routes->get('admin/add_product', 'ProductController::add_product_form');
 $routes->post('admin/add-product', 'ProductController::addproduct');
 
+
+
+//News
 //ROUTES BAGIAN NEWS
 $routes->get('/admin/AdminNews', 'AdminController::news');
 $routes->get('admin/add_news', 'AdminController::add_news_form');
