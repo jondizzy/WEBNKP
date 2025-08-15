@@ -31,6 +31,9 @@ class AdminController extends BaseController
         return view('pages/admin/dashboard', ['title' => 'Dashboard']);
     }
 
+
+
+    //BAGIAN NEWS SEMUA KEBAWAH
     public function news()
     {
         if (!session()->get('logged_in')) {
@@ -172,6 +175,113 @@ class AdminController extends BaseController
         }
     }
 
+
+    //BAGIAN CATEGORY SEMUA KEBAWAH
+    public function category()
+    {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login');
+        }
+
+        $categoryModel = new \App\Models\CategoryModel();
+        $data['category'] = $categoryModel->findAll();
+        $data['name'] = 'Kategori';
+
+        return view('pages/admin/AdminCategory', $data);
+    }
+
+    public function add_category_form()
+    {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login');
+        }
+
+        return view('pages/admin/add_category');
+    }
+
+    public function addCategory()
+    {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login');
+        }
+
+        // Validasi input
+        $validation = \Config\Services::validation();
+        $validation->setRules([
+            'name' => 'required',
+        ]);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        }
+
+        // Simpan data ke database
+        $categoryModel = new \App\Models\CategoryModel();
+        $data = [
+            'name' => $this->request->getPost('name')
+        ];
+        $categoryModel->insert_category($data);
+
+        return redirect()->to('/admin/AdminCategory')->with('success', 'Kategori berhasil ditambahkan.');
+    }
+
+
+    public function editCategory($id)
+    {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login');
+        }
+        $categoryModel = new \App\Models\CategoryModel();
+        $category = $categoryModel->find($id);
+
+        if (!$category) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException('Kategori tidak ditemukan');
+        }
+
+        return view('pages/admin/edit_category', ['category' => $category]);
+    }
+
+    public function updateCategory($id)
+    {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login');
+        }
+        $categoryModel = new \App\Models\CategoryModel();
+
+        // Validasi input
+        $validation = \Config\Services::validation();
+        $rules = [
+            'name' => 'required'
+        ];
+
+        $validation->setRules($rules);
+
+        if (!$validation->withRequest($this->request)->run()) {
+            return redirect()->back()->withInput()->with('errors', $validation->getErrors());
+        }
+
+        $data = [
+            'name' => $this->request->getPost('name'),
+        ];
+
+        $categoryModel->update($id, $data);
+
+        return redirect()->to('/admin/AdminCategory')->with('success', 'Kategori berhasil diperbarui.');
+    }
+
+    public function deleteCategory($id)
+    {
+        $categoryModel = new \App\Models\CategoryModel();
+        $category = $categoryModel->find($id);
+
+        if ($category) {
+            $categoryModel->delete($id);
+
+            return redirect()->to(base_url('admin/AdminCategory'))->with('success', 'Kategori berhasil dihapus.');
+        } else {
+            return redirect()->to(base_url('admin/AdminCategory'))->with('error', 'Kategori tidak ditemukan.');
+        }
+    }
 
     public function logout()
     {

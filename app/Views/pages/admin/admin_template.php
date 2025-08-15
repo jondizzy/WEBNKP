@@ -64,6 +64,9 @@
                     <a href="<?= base_url('admin/AdminProduct') ?>" class="nav-link text-white">Produk</a>
                 </li>
                 <li class="nav-item mb-2">
+                    <a href="<?= base_url('admin/AdminCategory') ?>" class="nav-link text-white">Category</a>
+                </li>
+                <li class="nav-item mb-2">
                     <a href="<?= base_url('admin/AdminNews') ?>" class="nav-link text-white">News</a>
                 </li>
             </ul>
