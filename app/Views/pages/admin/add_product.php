@@ -20,10 +20,8 @@
         <label>Spesifikasi</label>
         <textarea name="spesifikasi" class="form-control" rows="5" required></textarea>
     </div>
-
     <div class="form-group">
-        <label for="myDropdown">ProductCategory</label>
-        <br>
+        <label>Category</label>
         <select name="category_id" class="form-control" required>
             <option value="1">Food</option>
         </select>
@@ -35,5 +33,6 @@
 
     <button type="submit" class="btn btn-primary mt-3">Simpan</button>
 </form>
+
 
 <?= $this->endSection() ?>

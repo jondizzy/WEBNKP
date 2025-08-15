@@ -24,7 +24,9 @@ $routes->get('/admin/dashboard', 'AdminController::dashboard');
 $routes->get('/admin/AdminProduct', 'ProductController::ProductView');
 $routes->get('admin/add_product', 'ProductController::add_product_form');
 $routes->post('admin/add-product', 'ProductController::addproduct');
-
+$routes->get('admin/edit_product/(:num)', 'ProductController::editproduct/$1');
+$routes->post('admin/updateproduct/(:num)', 'ProductController::updateproduct/$1');
+$routes->get('admin/delete_product/(:num)', 'ProductController::deleteproduct/$1');
 
 
 //News
