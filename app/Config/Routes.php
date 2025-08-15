@@ -17,6 +17,9 @@ $routes->get('/login', 'AdminController::loginForm');
 $routes->post('/admin/login', 'AdminController::loginProcess');
 $routes->get('/admin/dashboard', 'AdminController::dashboard');
 
+$routes->get('admin/add_product', 'ProductController::add_product_form');
+$routes->post('admin/add-product', 'ProductController::addproduct');
+
 $routes->get('/admin/AdminNews', 'AdminController::news');
 $routes->get('admin/add_news', 'AdminController::add_news_form');
 $routes->post('admin/add-news', 'AdminController::addNews');
@@ -27,7 +30,3 @@ $routes->post('admin/update_news/(:num)', 'AdminController::updateNews/$1');
 $routes->get('admin/delete_news/(:num)', 'AdminController::deleteNews/$1');
 
 $routes->get('/logout', 'AdminController::logout');
-
-// $routes->get('/productdetail', 'ProductController::productdetail');
-
-$routes->get('/productdetail', 'Home::productdetail');

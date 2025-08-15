@@ -61,7 +61,7 @@
                     <a href="<?= base_url('admin/dashboard') ?>" class="nav-link text-white">Dashboard</a>
                 </li>
                 <li class="nav-item mb-2">
-                    <a href="#" class="nav-link text-white">Produk</a>
+                    <a href="<?= base_url('admin/add_product') ?>" class="nav-link text-white">Produk</a>
                 </li>
                 <li class="nav-item mb-2">
                     <a href="<?= base_url('admin/AdminNews') ?>" class="nav-link text-white">News</a>
