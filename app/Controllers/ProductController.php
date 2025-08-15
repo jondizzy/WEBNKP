@@ -91,9 +91,13 @@ class ProductController extends BaseController
             'img_url' => $nama_file,
         ];
 
+        $CategoryModel = new \App\Models\CategoryModel();
+        $data['category'] = $CategoryModel->findAll();
+
+
         $this->ProductModel->insert_product($data);
 
-        return redirect()->to('/admin/dashboard')->with('success', 'Product berhasil ditambahkan.');
+        return redirect()->to('/admin/AdminProduct')->with('success', 'Product berhasil ditambahkan.');
     }
 
     public function editproduct($id)

@@ -1,6 +1,6 @@
 <?= $this->extend('/pages/admin/admin_template') ?>
 <?= $this->section('content') ?>
-<?php var_dump($produk); ?>
+<!-- <?php var_dump($produk); ?> -->
 <div class="container mt-4">
     <h2 class="text-center mb-4">Produk PT. Nusamas Kimia Persada</h2>
 
@@ -40,7 +40,7 @@
                             <a href="<?= base_url('admin/edit_product/' . $item['product_id']) ?>" class="text-primary me-2">
                                 <i class="fas fa-pen fa-lg"></i>
                             </a>
-                            <a href="<?= base_url('admin/delete_Product/' . $item['product_id']) ?>" class="text-danger" onclick="return confirm('Yakin ingin menghapus berita ini?');">
+                            <a href="<?= base_url('admin/delete_product/' . $item['product_id']) ?>" class="text-danger" onclick="return confirm('Yakin ingin menghapus berita ini?');">
                                 <i class="fas fa-trash fa-lg"></i>
                             </a>
                         </td>
