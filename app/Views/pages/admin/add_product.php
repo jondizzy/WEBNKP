@@ -1,5 +1,6 @@
 <?= $this->extend('/pages/admin/admin_template') ?>
 <?= $this->section('content') ?>
+
 <h2>Add Product</h2>
 
 <form action="<?= base_url('admin/add-product') ?>" method="post" enctype="multipart/form-data">
@@ -21,12 +22,12 @@
     </div>
 
     <div class="form-group">
-        <label for="label">ProductCategory</label>
-        <select id="category_id" name="category_id">
+        <label for="myDropdown">ProductCategory</label>
+        <br>
+        <select name="category_id" class="form-control" required>
             <option value="1">Food</option>
         </select>
     </div>
-
     <div class="form-group">
         <label>Gambar</label>
         <input type="file" name="image" class="form-control-file" required>
