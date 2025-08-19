@@ -138,7 +138,9 @@
                     <img src="<?= base_url('images/product/' . $product['img_url']) ?>" alt="<?= esc($product['nama']) ?>">
                 <?php endforeach; ?>
             </div>
-            <a class="explore-button" href="<?= base_url('/productdetail/' . $item['produk'][0]['product_id']) ?>">Explore more ⟶</a>
+            <a class="explore-button" href="<?= base_url('/ProductDetail/' . $item['category']['category_id']) ?>">Explore more ⟶</a>
+
+
         </div>
     <?php endforeach; ?>
 </section>
