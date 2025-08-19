@@ -28,7 +28,17 @@ class AdminController extends BaseController
             return redirect()->to('/login');
         }
 
-        return view('pages/admin/dashboard', ['title' => 'Dashboard']);
+        $productModel = new \App\Models\ProductModel();
+        $newsModel = new \App\Models\NewsModel();
+
+        $data = [
+            'title'        => 'Dashboard',
+            'productCount' => $productModel->countAllResults(),
+            'newsCount'    => $newsModel->countAllResults(),
+            'clientCount'  => 20 // sementara hardcode dulu
+        ];
+
+        return view('pages/admin/dashboard', $data);
     }
 
 
