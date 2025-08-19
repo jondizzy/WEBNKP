@@ -10,7 +10,7 @@
         margin: 0 auto;
     }
 
-    .esensial-oil {
+    .oil {
         background-color: #fff8f0;
         border-radius: 18px;
         width: 90%;
@@ -18,13 +18,16 @@
         margin: 0 auto;
     }
 
-    .agrochemicals {
+    .industries {
         background-color: #F0FFF1;
         border-radius: 18px;
         width: 90%;
         max-width: 1200px;
         margin: 0 auto;
     }
+
+
+
 
     .Product-text {
         padding: 30px;
@@ -38,16 +41,24 @@
     }
 
     .Product-container {
-        display: flex;
-        justify-content: space-evenly;
-        margin-bottom: 40px;
-        padding-bottom: 90px;
+        display: flex !important;
+        justify-content: space-between !important;
+        flex-wrap: wrap !important;
+        margin-bottom: 40px !important;
+        padding-bottom: 90px !important;
     }
 
     .Product-container img {
-        width: 160px;
-        height: 120px;
-        border-radius: 8px;
+        width: 160px !important;
+        height: 120px !important;
+        border-radius: 8px !important;
+        flex-grow: 1 !important;
+        max-width: 25% !important;
+        margin: 20px !important;
+    }
+
+    .Product-container img:nth-child(n+5) {
+        display: none !important;
     }
 
     .explore-button {
@@ -111,70 +122,35 @@
 </style>
 
 
-<section class="food">
-    <div class="Product-text">
-        <h2><strong>Food Ingredients</strong></h2>
-        <p>
-            Kategori Makanan mencakup bahan-bahan esensial dan aditif yang
-            meningkatkan kualitas, rasa, dan stabilitas produk makanan.
-            Bahan-bahan ini memainkan peran krusial dalam berbagai aplikasi
-            pengolahan dan manufaktur makanan.
-        </p>
-        <div class="Product-container">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
-                alt="Food Image 1" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
-                alt="Food Image 1" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
-                alt="Food Image 1" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
-                alt="Food Image 1" />
+<section>
+    <?php foreach ($data as $item): ?>
+        <div class=" Product-text <?= strtolower(str_replace(' ', '-', $item['category']['name'])); ?>">
+            <h2><strong><?= esc($item['category']['name']); ?></strong></h2>
+            <p>
+                Kategori Makanan mencakup bahan-bahan esensial dan aditif yang
+                meningkatkan kualitas, rasa, dan stabilitas produk makanan.
+                Bahan-bahan ini memainkan peran krusial dalam berbagai aplikasi
+                pengolahan dan manufaktur makanan.
+            </p>
+            <br>
+            <div class="Product-container">
+                <?php foreach ($item['produk'] as $product): ?>
+                    <img src="<?= base_url('images/product/' . $product['img_url']) ?>" alt="<?= esc($product['nama']) ?>">
+                <?php endforeach; ?>
+            </div>
+            <a class="explore-button" href="<?= base_url('/ProductDetail/' . $item['category']['category_id']) ?>">Explore more ⟶</a>
+
+
         </div>
-        <a class="explore-button" href="<?= base_url('/productdetail') ?>">Explore more ⟶</a>
-    </div>
+    <?php endforeach; ?>
 </section>
 
-<section class="esensial-oil">
-    <div class="Product-text">
-        <h2><strong>Essential Oils</strong></h2>
-        <p>
-            Kategori Makanan mencakup bahan-bahan esensial dan aditif yang meningkatkan kualitas, rasa, dan stabilitas produk makanan. Bahan-bahan ini memainkan peran krusial dalam berbagai aplikasi pengolahan dan manufaktur makanan.
-        </p>
-        <div class="Product-container">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
-                alt="Food Image 1" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
-                alt="Food Image 1" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
-                alt="Food Image 1" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
-                alt="Food Image 1" />
-        </div>
-        <a class="explore-button" href="#">Explore more ⟶</a>
-    </div>
-</section>
 
-<section class="agrochemicals">
-    <div class="Product-text">
-        <h2><strong>Agrochemicals</strong></h2>
-        <p>
-            Kategori Makanan mencakup bahan-bahan esensial dan aditif yang meningkatkan kualitas, rasa, dan stabilitas produk makanan. Bahan-bahan ini memainkan peran krusial dalam berbagai aplikasi pengolahan dan manufaktur makanan.
-        </p>
-        <div class="Product-container">
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
-                alt="Food Image 1" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
-                alt="Food Image 1" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
-                alt="Food Image 1" />
-            <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTrX6eIoiNP862JmJC18qwcDjrUMnexyaAaOQ&s"
-                alt="Food Image 1" />
-        </div>
-        <a class="explore-button" href="#">Explore more ⟶</a>
-    </div>
-</section>
 
 <!-- bottom section -->
+
+
+
 <section>
     <div class="bottom-message">
         <p>Can’t find what you’re looking for?</p>

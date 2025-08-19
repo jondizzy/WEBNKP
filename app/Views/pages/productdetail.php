@@ -89,7 +89,8 @@
 <section>
     <div class="banner-product">
         <div class="text-container">
-            <h1>Essential Oil</h1>
+            <h1><?= esc($category['name']) ?></h1>
+
         </div>
     </div>
 </section>
@@ -99,17 +100,9 @@
     <div class="product-detail">
         <div class="productdetail-text">
             <h2>SATU TETES KEAJAIBAN DARI ALAM</h2>
-            <p>
-                Diekstrak langsung dari tanaman pilihan, senyawa alami ini menghadirkan kesegaran murni,
-                kesehatan yang menenangkan, dan energi positif yang memancar ke seluruh indera.
-            </p>
-            <p>
-                Cocok untuk aromaterapi, perisa alami, hingga keharuman yang memikat,
-                setiap tetesnya membawa Anda lebih dekat ke harmoni tubuh, pikiran, dan jiwa.
-            </p>
-            <p><strong>Alami. Murni. Menyentuh hati.</strong></p>
+            <p><?= esc($category['deskripsi']) ?></p>
         </div>
-        <img src="<?= base_url('images/Product 6.jpg') ?>" alt="Minyak Alami" class="product-img">
+
     </div>
 </section>
 
@@ -125,21 +118,21 @@
                 </tr>
             </thead>
             <tbody>
-                <tr>
-                    <td>1</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>2</td>
-                    <td></td>
-                    <td></td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td></td>
-                    <td></td>
-                </tr>
+                <?php if (!empty($products)): ?>
+                    <?php $counter = 1; // Inisialisasi penghitung untuk nomor urut 
+                    ?>
+                    <?php foreach ($products as $product): ?>
+                        <tr>
+                            <td><?= $counter++ ?></td> <!-- Menampilkan nomor urut -->
+                            <td><?= esc($product['nama']) ?></td>
+                            <td><?= esc($product['spesifikasi']) ?></td>
+                        </tr>
+                    <?php endforeach; ?>
+                <?php else: ?>
+                    <tr>
+                        <td colspan="3">Tidak ada produk di kategori ini.</td>
+                    </tr>
+                <?php endif; ?>
             </tbody>
         </table>
     </div>

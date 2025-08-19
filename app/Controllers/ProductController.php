@@ -39,14 +39,30 @@ class ProductController extends BaseController
     public function ProductDetail($id)
     {
         $ProductModel = new \App\Models\ProductModel();
-        $data['produk'] = $ProductModel->find($id);
+        $CategoryModel = new \App\Models\CategoryModel();
 
-        if (!$data['produk']) {
-            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Berita tidak ditemukan.');
+        // Mendapatkan data kategori berdasarkan category_id
+        $category = $CategoryModel->getCategory($id);
+
+        // Jika kategori tidak ditemukan, redirect ke halaman 404
+        if (!$category) {
+            throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Category not found');
         }
 
-        return view('pages/productdetail', $data);
+        // Mendapatkan produk berdasarkan category_id
+        $produk = $ProductModel->getProductsByCategory($id);
+
+        // Menyiapkan data untuk view
+        $data = [
+            'category' => $category,
+            'produk' => $produk
+        ];
+
+        // Memuat view detail kategori
+        return view('pages/Productdetail', $data);
     }
+
+
     public function add_product_form()
     {
         $categoryModel = new \App\Models\CategoryModel();
@@ -55,6 +71,24 @@ class ProductController extends BaseController
         return view('pages/admin/add_product', [
             'categories' => $categories
         ]);
+    }
+
+
+    public function show_produk()
+    {
+        $ProductModel = new \App\Models\ProductModel();
+        $CategoryModel = new \App\Models\CategoryModel();
+        $Categories = $CategoryModel->findAll();
+
+        $data = [];
+        foreach ($Categories as $Category) {
+            $CategoryProduct = $ProductModel->where('category_id', $Category['category_id'])->findAll();
+            $data[] = [
+                'category'  => $Category,
+                'produk' => $CategoryProduct
+            ];
+        }
+        return view('pages/ProductCategory', ['data' => $data]);
     }
 
 
@@ -107,13 +141,19 @@ class ProductController extends BaseController
             return redirect()->to('/login');
         }
         $ProductModel = new \App\Models\ProductModel();
+        $CategoryModel = new \App\Models\CategoryModel();
+
         $produk = $ProductModel->find($id);
+        $categories = $CategoryModel->findAll();
 
         if (!$produk) {
             throw new \CodeIgniter\Exceptions\PageNotFoundException('Produk tidak ditemukan');
         }
 
-        return view('pages/admin/edit_product', ['product' => $produk]);
+        return view('pages/admin/edit_product', [
+            'product'   => $produk,
+            'categories' => $categories,
+        ]);
     }
 
 
@@ -161,6 +201,8 @@ class ProductController extends BaseController
 
         return redirect()->to('/admin/dashboard')->with('success', 'produk berhasil diperbarui.');
     }
+
+
     public function deleteproduct($id)
     {
         $ProductModel = new \App\Models\ProductModel();
@@ -180,5 +222,51 @@ class ProductController extends BaseController
         } else {
             return redirect()->to(base_url('admin/AdminProduct'))->with('error', 'Produk tidak ditemukan.');
         }
+    }
+
+
+
+    public function update_product($id)
+    {
+        if (!session()->get('logged_in')) {
+            return redirect()->to('/login');
+        }
+
+        $ProductModel = new \App\Models\ProductModel();
+        $CategoryModel = new \App\Models\CategoryModel();
+
+        // Ambil data produk berdasarkan ID produk
+        $product = $ProductModel->find($id);
+
+        // Jika produk tidak ditemukan, redirect ke halaman lain atau tampilkan error
+        if (!$product) {
+            throw new \CodeIgniter\Exceptions\PageNotFoundException("Product not found!");
+        }
+
+        // Ambil semua kategori untuk dropdown
+        $categories = $CategoryModel->findAll();
+
+        // Jika form disubmit (misalnya POST)
+        if ($this->request->getMethod() === 'post') {
+            $data = [
+                'category_id'   => $this->request->getPost('category_id'),
+                'nama'  => $this->request->getPost('nama'),
+                'img_url'       => $this->request->getPost('img_url'),
+                'deskripsi'   => $this->request->getPost('deskripsi'),
+                'spesifikasi'         => $this->request->getPost('spesifikasi'),
+            ];
+
+            // Update data produk
+            $ProductModel->update($id, $data);
+
+            // Redirect ke halaman produk atau beri notifikasi sukses
+            return redirect()->to('/admin/dashboard' . $id)->with('success', 'Product updated successfully!');
+        }
+
+        // Kirim data produk dan kategori ke view
+        return view('pages/admin/edit_product', [
+            'product'   => $product,
+            'categories' => $categories,
+        ]);
     }
 }

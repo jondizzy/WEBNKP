@@ -209,16 +209,24 @@ class AdminController extends BaseController
         $validation = \Config\Services::validation();
         $validation->setRules([
             'name' => 'required',
+            'deskripsi' => 'required',
+            'image' => 'uploaded[image]|mime_in[image,image/jpg,image/jpeg,image/png,image/webp]|max_size[image,2048]'
         ]);
 
         if (!$validation->withRequest($this->request)->run()) {
             return redirect()->back()->withInput()->with('errors', $validation->getErrors());
         }
 
+        $image = $this->request->getFile('image');
+        $nama_file = $image->getRandomName();
+        $image->move('images/category/', $nama_file);
+
         // Simpan data ke database
         $categoryModel = new \App\Models\CategoryModel();
         $data = [
-            'name' => $this->request->getPost('name')
+            'name' => $this->request->getPost('name'),
+            'deskripsi' => $this->request->getPost('deskripsi'),
+            'img_url' => $nama_file,
         ];
         $categoryModel->insert_category($data);
 
@@ -251,8 +259,12 @@ class AdminController extends BaseController
         // Validasi input
         $validation = \Config\Services::validation();
         $rules = [
-            'name' => 'required'
+            'name' => 'required',
+            'deskripsi' => 'required',
         ];
+        if ($this->request->getFile('image')->isValid()) {
+            $rules['image'] = 'uploaded[image]|mime_in[image,image/jpg,image/jpeg,image/png,image/webp]|max_size[image,2048]';
+        }
 
         $validation->setRules($rules);
 
@@ -262,7 +274,14 @@ class AdminController extends BaseController
 
         $data = [
             'name' => $this->request->getPost('name'),
+            'deskripsi' => $this->request->getPost('deskripsi'),
         ];
+        $image = $this->request->getFile('image');
+        if ($image && $image->isValid()) {
+            $nama_file = $image->getRandomName();
+            $image->move('images/news/', $nama_file);
+            $data['image_url'] = $nama_file;
+        }
 
         $categoryModel->update($id, $data);
 
