@@ -13,7 +13,7 @@
                 <p class="mb-1">Products</p>
             </div>
             <div class="card-footer text-center bg-light">
-                <a href="#" class="text-info text-decoration-none">View Details</a>
+                <a href="/admin/AdminProduct" class="text-info text-decoration-none">View Details</a>
             </div>
         </div>
     </div>

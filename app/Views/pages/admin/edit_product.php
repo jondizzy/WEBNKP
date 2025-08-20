@@ -33,7 +33,8 @@
             <select name="category_id" class="form-control" required>
                 <option value="">-- Pilih Kategori --</option>
                 <?php foreach ($categories as $cat): ?>
-                    <option value="<?= esc($cat['category_id']) ?>">
+                    <option value="<?= esc($cat['category_id']) ?>"
+                        <?= ($cat['category_id'] == $product['category_id']) ? 'selected' : '' ?>>
                         <?= esc($cat['name']) ?>
                     </option>
                 <?php endforeach; ?>

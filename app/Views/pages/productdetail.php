@@ -5,7 +5,6 @@
 <style>
     .banner-product {
         position: relative;
-        background-image: url('https://static.vecteezy.com/system/resources/previews/000/701/690/non_2x/abstract-polygonal-banner-background-vector.jpg');
         background-size: cover;
         background-position: center;
         height: 50vh;
@@ -87,10 +86,10 @@
 
 <!-- banner -->
 <section>
-    <div class="banner-product">
+    <div class="banner-product"
+        style="background-image: url('<?= base_url('images/category/' . esc($category['img_url'])) ?>');">
         <div class="text-container">
             <h1><?= esc($category['name']) ?></h1>
-
         </div>
     </div>
 </section>
@@ -99,10 +98,8 @@
 <section style="padding-top: 20px;">
     <div class="product-detail">
         <div class="productdetail-text">
-            <h2>SATU TETES KEAJAIBAN DARI ALAM</h2>
             <p><?= esc($category['deskripsi']) ?></p>
         </div>
-
     </div>
 </section>
 

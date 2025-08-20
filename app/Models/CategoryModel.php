@@ -19,4 +19,8 @@ class CategoryModel extends Model
     {
         return $this->asArray()->where(['category_id' => $category_id])->first();
     }
+    public function getImage($category_id)
+    {
+        return $this->asArray()->where(['category_id' => $category_id])->first();
+    }
 }

@@ -52,10 +52,14 @@ class ProductController extends BaseController
         // Mendapatkan produk berdasarkan category_id
         $produk = $ProductModel->getProductsByCategory($id);
 
+        // Mendapatkan produk berdasarkan category_id
+        $img_url = $CategoryModel->getImage($id);
+
         // Menyiapkan data untuk view
         $data = [
             'category' => $category,
-            'produk' => $produk
+            'produk' => $produk,
+            'img_url' => $img_url,
         ];
 
         // Memuat view detail kategori
@@ -199,7 +203,7 @@ class ProductController extends BaseController
 
         $ProductModel->update($id, $data);
 
-        return redirect()->to('/admin/dashboard')->with('success', 'produk berhasil diperbarui.');
+        return redirect()->to('/admin/AdminProduct')->with('success', 'produk berhasil diperbarui.');
     }
 
 

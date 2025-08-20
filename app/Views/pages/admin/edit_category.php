@@ -25,7 +25,7 @@
         </div>
         <div class="mb-3">
             <label>Gambar Saat Ini:</label><br>
-            <img src="<?= base_url('images/product/' . $category['img_url']) ?>" style="max-width: 200px;" alt="">
+            <img src="<?= base_url('images/category/' . $category['img_url']) ?>" style="max-width: 200px;" alt="">
         </div>
         <div class="mb-3">
             <label>Ganti Gambar (Opsional)</label>

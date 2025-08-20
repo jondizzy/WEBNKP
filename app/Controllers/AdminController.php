@@ -284,13 +284,13 @@ class AdminController extends BaseController
 
         $data = [
             'name' => $this->request->getPost('name'),
-            'deskripsi' => $this->request->getPost('deskripsi'),
+            'deskripsi' => $this->request->getPost('deskripsi')
         ];
         $image = $this->request->getFile('image');
         if ($image && $image->isValid()) {
             $nama_file = $image->getRandomName();
-            $image->move('images/news/', $nama_file);
-            $data['image_url'] = $nama_file;
+            $image->move('images/category/', $nama_file);
+            $data['img_url'] = $nama_file;
         }
 
         $categoryModel->update($id, $data);
