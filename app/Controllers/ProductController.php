@@ -41,30 +41,23 @@ class ProductController extends BaseController
         $ProductModel = new \App\Models\ProductModel();
         $CategoryModel = new \App\Models\CategoryModel();
 
-        // Mendapatkan data kategori berdasarkan category_id
         $category = $CategoryModel->getCategory($id);
 
-        // Jika kategori tidak ditemukan, redirect ke halaman 404
         if (!$category) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Category not found');
         }
 
-        // Mendapatkan produk berdasarkan category_id
+        // ambil produk sesuai kategori
         $produk = $ProductModel->getProductsByCategory($id);
 
-        // Mendapatkan produk berdasarkan category_id
-        $img_url = $CategoryModel->getImage($id);
-
-        // Menyiapkan data untuk view
         $data = [
             'category' => $category,
-            'produk' => $produk,
-            'img_url' => $img_url,
+            'products' => $produk,   // kirim sebagai 'products'
         ];
 
-        // Memuat view detail kategori
         return view('pages/Productdetail', $data);
     }
+
 
 
     public function add_product_form()

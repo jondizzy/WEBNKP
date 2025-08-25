@@ -110,24 +110,29 @@
             <thead>
                 <tr>
                     <th>No.</th>
-                    <th>Produk</th>
+                    <th>Gambar Produk</th>
+                    <th>Nama Produk</th>
                     <th>Spesifikasi / fungsi</th>
                 </tr>
             </thead>
             <tbody>
                 <?php if (!empty($products)): ?>
-                    <?php $counter = 1; // Inisialisasi penghitung untuk nomor urut 
-                    ?>
+                    <?php $counter = 1; ?>
                     <?php foreach ($products as $product): ?>
                         <tr>
-                            <td><?= $counter++ ?></td> <!-- Menampilkan nomor urut -->
+                            <td><?= $counter++ ?></td>
+                            <td>
+                                <img src="<?= base_url('images/product/' . esc($product['img_url'])) ?>"
+                                    alt="<?= esc($product['nama']) ?>"
+                                    width="120">
+                            </td>
                             <td><?= esc($product['nama']) ?></td>
                             <td><?= esc($product['spesifikasi']) ?></td>
                         </tr>
                     <?php endforeach; ?>
                 <?php else: ?>
                     <tr>
-                        <td colspan="3">Tidak ada produk di kategori ini.</td>
+                        <td colspan="4" style="text-align:center;">Tidak ada produk di kategori ini.</td>
                     </tr>
                 <?php endif; ?>
             </tbody>

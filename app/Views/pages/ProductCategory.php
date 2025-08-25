@@ -26,40 +26,105 @@
         margin: 0 auto;
     }
 
-
-
-
     .Product-text {
-        padding: 30px;
-        margin-bottom: 40px;
+        height: 350px;
+        border-radius: 18px;
         position: relative;
+        overflow: hidden;
+        margin-bottom: 40px;
+        box-shadow: 0 8px 20px rgba(0, 0, 0, 0.15);
+        /* bayangan lembut */
     }
 
-    .Product-text h2 {
-        font-size: 28px;
+    .Product-text::before {
+        content: "";
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(rgba(0, 0, 0, 0.5), rgba(0, 0, 0, 0.2));
+        /* gradient gelap ke terang */
+        border-radius: 18px;
+        z-index: 1;
+    }
+
+    .Product-text-content {
+        position: relative;
+        z-index: 2;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-between;
+        height: 100%;
+        padding: 20px 40px;
+        /* biar teks tidak nempel kiri-kanan */
+    }
+
+    .Product-text-content h2,
+    .Product-text-content p {
+        color: #fff;
+        /* putih */
+        text-shadow: 0px 2px 5px rgba(0, 0, 0, 0.7);
+        /* biar lebih jelas */
+    }
+
+    .Product-text-content h2 {
+        font-size: 26px;
+        font-weight: bold;
         margin-bottom: 10px;
     }
 
+    .Product-text-content p {
+        font-size: 16px;
+        line-height: 1.5;
+    }
+
+    .explore-button {
+        align-self: flex-end;
+        /* tombol tetap kanan bawah */
+        margin-top: auto;
+        /* dorong ke bawah */
+        background-color: #000066;
+        color: white;
+        padding: 12px 24px;
+        border: none;
+        border-radius: 30px;
+        font-size: 14px;
+        cursor: pointer;
+        text-decoration: none;
+        transition: all 0.3s ease;
+    }
+
+    .explore-button:hover {
+        background-color: #000044;
+        transform: scale(1.05);
+        /* efek hover lebih hidup */
+    }
+
     .Product-container {
-        display: flex !important;
-        justify-content: space-between !important;
-        flex-wrap: wrap !important;
-        margin-bottom: 40px !important;
-        padding-bottom: 90px !important;
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+        scroll-behavior: auto;
+        /* Jangan smooth, biar infinite loop cepat */
+    }
+
+    .Product-container::-webkit-scrollbar {
+        display: none;
     }
 
     .Product-container img {
-        width: 160px !important;
-        height: 120px !important;
+        flex: 0 0 auto;
+        width: 200px !important;
+        height: 150px !important;
         border-radius: 8px !important;
-        flex-grow: 1 !important;
-        max-width: 25% !important;
-        margin: 20px !important;
+        margin-right: 20px !important;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
     }
 
-    .Product-container img:nth-child(n+5) {
-        display: none !important;
+    .Product-container img:hover {
+        transform: scale(1.12);
+        /* dari 1.08 ke 1.12 */
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
     }
+
 
     .explore-button {
         position: absolute;
@@ -119,28 +184,77 @@
     .bottom-message button:hover {
         background-color: #000044;
     }
+
+    .bg-category {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        /* isi penuh, crop kalau perlu */
+        border-radius: 18px;
+        z-index: 0;
+    }
+
+    .section-wrapper {
+        width: 90%;
+        /* biar nggak full */
+        max-width: 1200px;
+        /* biar rapih di layar besar */
+        margin: 0 auto;
+        /* otomatis center */
+        padding: 0 20px;
+        /* jarak kiri kanan */
+    }
+
+    .carousel-wrapper {
+        overflow: hidden;
+        width: 100%;
+        position: relative;
+    }
+
+    .carousel-track {
+        display: flex;
+        transition: transform 0.5s ease-in-out;
+        width: max-content;
+    }
+
+    .carousel-track img {
+        flex: 0 0 auto;
+        width: 160px;
+        height: 120px;
+        margin-right: 20px;
+        border-radius: 8px;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+
+    .carousel-track img:hover {
+        transform: scale(1.08);
+        box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+    }
 </style>
 
 
-<section>
+<section class="section-wrapper">
     <?php foreach ($data as $item): ?>
-        <div class=" Product-text <?= strtolower(str_replace(' ', '-', $item['category']['name'])); ?>">
-            <h2><strong><?= esc($item['category']['name']); ?></strong></h2>
-            <p>
-                Kategori Makanan mencakup bahan-bahan esensial dan aditif yang
-                meningkatkan kualitas, rasa, dan stabilitas produk makanan.
-                Bahan-bahan ini memainkan peran krusial dalam berbagai aplikasi
-                pengolahan dan manufaktur makanan.
-            </p>
-            <br>
-            <div class="Product-container">
-                <?php foreach ($item['produk'] as $product): ?>
-                    <img src="<?= base_url('images/product/' . $product['img_url']) ?>" alt="<?= esc($product['nama']) ?>">
-                <?php endforeach; ?>
+        <div class="Product-text">
+            <img src="<?= base_url('images/category/' . esc($item['category']['img_url'])) ?>" class="bg-category">
+
+            <div class="Product-text-content">
+                <h2><strong><?= esc($item['category']['name']); ?></strong></h2>
+                <p><?= esc($item['category']['deskripsi']); ?></p>
+                <br>
+
+                <div class="Product-container" id="carousel-<?= esc($item['category']['category_id']) ?>">
+                    <?php foreach ($item['produk'] as $product): ?>
+                        <img src="<?= base_url('images/product/' . esc($product['img_url'])) ?>" alt="<?= esc($product['nama']) ?>">
+                    <?php endforeach; ?>
+                </div>
+
+                <a class="explore-button" href="<?= base_url('/ProductDetail/' . $item['category']['category_id']) ?>">
+                    Explore more ⟶
+                </a>
             </div>
-            <a class="explore-button" href="<?= base_url('/ProductDetail/' . $item['category']['category_id']) ?>">Explore more ⟶</a>
-
-
         </div>
     <?php endforeach; ?>
 </section>
@@ -166,5 +280,30 @@
             behavior: 'smooth'
         });
     }
+
+    document.querySelectorAll('.Product-container').forEach((container) => {
+        const scrollSpeed = 1; // kecepatan scroll
+
+        const children = Array.from(container.children);
+
+        if (children.length < 5) return;
+
+        children.forEach(child => {
+            const clone = child.cloneNode(true);
+            container.appendChild(clone);
+        });
+
+        function autoScroll() {
+            container.scrollLeft += scrollSpeed;
+
+            if (container.scrollLeft >= container.scrollWidth / 2) {
+                container.scrollLeft = 0;
+            }
+
+            requestAnimationFrame(autoScroll);
+        }
+
+        autoScroll(); // Mulai scroll
+    });
 </script>
 <?= $this->endSection() ?>
