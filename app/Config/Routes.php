@@ -47,4 +47,10 @@ $routes->get('admin/edit_category/(:num)', 'AdminController::editCategory/$1');
 $routes->post('admin/update_category/(:num)', 'AdminController::updateCategory/$1');
 $routes->get('admin/delete_category/(:num)', 'AdminController::deleteCategory/$1');
 
+
+//ROUTES BAGIAN CONTACT EMAIL
+$routes->post('/contact/send', 'ContactController::send');
+$routes->get('contact/testEnv', 'ContactController::testEnv');
+
+
 $routes->get('/logout', 'AdminController::logout');

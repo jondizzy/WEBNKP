@@ -15,12 +15,8 @@
         }
 
         .sidebar {
-            width: 250px;
-            background: #343a40;
-            min-height: 100vh;
-            padding-top: 1rem;
-            position: fixed;
-            color: white;
+            position: sticky;
+            top: 0;
         }
 
         .sidebar a {
@@ -46,6 +42,16 @@
             padding: 1rem 2rem;
             margin-bottom: 1rem;
         }
+
+        html,
+        body {
+            height: 100%;
+            margin: 0;
+        }
+
+        #wrapper {
+            min-height: 100vh;
+        }
     </style>
 </head>
 
@@ -54,7 +60,7 @@
     <!-- views/pages/admin/admin_template.php -->
     <div class="d-flex" id="wrapper">
         <!-- Sidebar -->
-        <div class="bg-dark text-white p-3 vh-100 d-flex flex-column" style="width: 250px;">
+        <div class="bg-dark text-white p-3 d-flex flex-column" style="width: 250px;">
             <h4 class="mb-4">Admin Panel</h4>
             <ul class="nav flex-column flex-grow-1">
                 <li class="nav-item mb-2">

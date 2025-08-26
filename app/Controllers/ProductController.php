@@ -41,26 +41,23 @@ class ProductController extends BaseController
         $ProductModel = new \App\Models\ProductModel();
         $CategoryModel = new \App\Models\CategoryModel();
 
-        // Mendapatkan data kategori berdasarkan category_id
         $category = $CategoryModel->getCategory($id);
 
-        // Jika kategori tidak ditemukan, redirect ke halaman 404
         if (!$category) {
             throw \CodeIgniter\Exceptions\PageNotFoundException::forPageNotFound('Category not found');
         }
 
-        // Mendapatkan produk berdasarkan category_id
+        // ambil produk sesuai kategori
         $produk = $ProductModel->getProductsByCategory($id);
 
-        // Menyiapkan data untuk view
         $data = [
             'category' => $category,
-            'produk' => $produk
+            'products' => $produk,   // kirim sebagai 'products'
         ];
 
-        // Memuat view detail kategori
         return view('pages/Productdetail', $data);
     }
+
 
 
     public function add_product_form()
@@ -199,7 +196,7 @@ class ProductController extends BaseController
 
         $ProductModel->update($id, $data);
 
-        return redirect()->to('/admin/dashboard')->with('success', 'produk berhasil diperbarui.');
+        return redirect()->to('/admin/AdminProduct')->with('success', 'produk berhasil diperbarui.');
     }
 
 
