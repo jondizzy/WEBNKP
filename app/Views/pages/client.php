@@ -39,7 +39,7 @@
         gap: 1.5rem;
     }
 
-    .client-card {
+    .client-card { /*container*/
         border: 1px solid #ddd;
         border-radius: 10px;
         overflow: hidden;
@@ -93,20 +93,40 @@
 
 <section class="clients-section">
     <h2>Our Clients & Projects</h2>
+    <table> <!-- separate each client based on country -->
+        <?php foreach ($item['client_country'] as $client): ?>
+            <table style="border:0px"> <!-- client container -->
+                <tr>
+                    <td><?= esc(data: $item['client_country'])?></td>
+                </tr>
+                <tr>
+                    <?php foreach($item['client_name'] as $client): ?>
+                    <td>
+                        <img src="<?= base_url('images/client/' . $item['logo_url']) ?>"
+                                alt="<?= esc($item['client_name']) ?>"
+                                class="img-fluid"
+                                style="max-height: 100px;">
+                    </td>
+                    <?php endforeach; ?>
+                </tr>
+            </table>
+        <?php endforeach; ?>
 
-    <!-- Indonesia -->
+    </table>
+    
+    <!--
     <h3 class="country-title">
         <img src="https://flagcdn.com/w40/id.png" class="flag" alt="Indonesia"> Indonesia
     </h3>
     <div class="clients-grid">
-        <a href="/client/detail/myrepublic" class="client-card">
+        <a href="/client/detail/myrepublic" class="client-card"> 
             <div class="image-wrapper">
                 <img src="/images/client1.jpeg" alt="Waymouth" class="company-logo">
             </div>
             <h4>MY REPUBLIC JUNCTION</h4>
             <p>GREEN OFFICE PARK 6 BSD</p>
         </a>
-        <a href="/client/detail/waymouth-street" class="client-card">
+        <a href="/client/detail/waymouth-street" class="client-card"> 
             <div class="image-wrapper">
                 <img src="/images/client2.jpg" alt="Waymouth" class="company-logo">
             </div>
@@ -115,12 +135,11 @@
         </a>
     </div>
 
-    <!-- China -->
     <h3 class="country-title">
         <img src="https://flagcdn.com/w40/cn.png" class="flag" alt="China"> China
     </h3>
     <div class="clients-grid">
-        <a href="/client/detail/waymouth-street" class="client-card">
+        <a href="/client/detail/waymouth-street" class="client-card"> 
             <div class="image-wrapper">
                 <img src="/images/client3.jpg" alt="Waymouth" class="company-logo">
             </div>
@@ -129,12 +148,11 @@
         </a>
     </div>
 
-    <!-- Malaysia -->
     <h3 class="country-title">
         <img src="https://flagcdn.com/w40/my.png" class="flag" alt="Malaysia"> Malaysia
     </h3>
     <div class="clients-grid">
-        <a href="/client/detail/giffnock-avenue" class="client-card">
+        <a href="/client/detail/giffnock-avenue" class="client-card"> 
             <div class="image-wrapper">
                 <img src="/images/client4.jpg" alt="Giffnock" class="company-logo">
             </div>
@@ -143,5 +161,6 @@
         </a>
 
     </div>
+    -->
 </section>
 <?= $this->endSection() ?>
